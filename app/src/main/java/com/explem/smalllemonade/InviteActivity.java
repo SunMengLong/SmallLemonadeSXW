@@ -13,7 +13,7 @@ import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.utils.Log;
 
-public class InviteActivity extends AppCompatActivity {
+public class InviteActivity extends AppCompatActivity implements View.OnClickListener {
 
     private LinearLayout share_qqzone;
     private LinearLayout share_qq;
@@ -30,20 +30,11 @@ public class InviteActivity extends AppCompatActivity {
         share_wechat = (LinearLayout) findViewById(R.id.share_wechat);
         share_friend = (LinearLayout) findViewById(R.id.share_friend);
         share_weibo = (LinearLayout) findViewById(R.id.share_weibo);
-        share_qq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new ShareAction(InviteActivity.this).setPlatform(SHARE_MEDIA.QQ)
-                        .withText("hello")
-                        .setCallback(umShareListener)
-                        .share();
-                /*new ShareAction(InviteActivity.this).withText("hello")
-                        .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
-                        .setCallback(umShareListener).open();*/
-            }
-        });
+        share_qq.setOnClickListener(this);
+        share_wechat.setOnClickListener(this);
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -72,4 +63,22 @@ public class InviteActivity extends AppCompatActivity {
             Toast.makeText(InviteActivity.this,platform + " 分享取消了", Toast.LENGTH_SHORT).show();
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.share_qq:
+                new ShareAction(InviteActivity.this).setPlatform(SHARE_MEDIA.QQ)
+                        .withText("hello")
+                        .setCallback(umShareListener)
+                        .share();
+                break;
+            case R.id.share_wechat:
+                new ShareAction(InviteActivity.this).setPlatform(SHARE_MEDIA.WEIXIN)
+                        .withText("hello")
+                        .setCallback(umShareListener)
+                        .share();
+                break;
+        }
+    }
 }

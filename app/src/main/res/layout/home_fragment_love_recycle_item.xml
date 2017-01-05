@@ -10,7 +10,7 @@
         android:layout_height="80dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
-        android:src="@drawable/mt_loading01" />
+        android:src="@drawable/mt_loading02" />
 
     <android.support.v7.widget.CardView
         android:layout_centerInParent="true"

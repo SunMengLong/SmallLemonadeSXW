@@ -35,11 +35,8 @@
 
     <dimen name="mf_ver_margain">16px</dimen>
     <dimen name="mf_log_off">1240px</dimen>
-    <dimen name="mf_ver_margain">8px</dimen>
     <dimen name="mf_hor_margain">16px</dimen>
     <dimen name="mf_tv_hei">60px</dimen>
     <dimen name="mf_ok">40px</dimen>
-    <dimen name="mf_panding">30px</dimen>
-    <dimen name="mf_tv_hei">20dp</dimen>
     <dimen name="mf_panding">30px</dimen>
 </resources>

@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SET_DEBUG_APP" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -26,13 +25,14 @@
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="585dcfcf2ae85b2913002bc8" />
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -45,7 +45,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -57,9 +57,10 @@
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
         <meta-data
             android:name="design_width"
             android:value="1280" />
@@ -68,26 +69,22 @@
             android:value="1920" />
 
         <activity android:name=".base.BaseActivity" />
-        <activity android:name=".view.Home_Fragemnt_Note"></activity>
+        <activity android:name=".view.Home_Fragemnt_Note" />
+
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
 
         <activity android:name=".MineJumpActivity" />
         <activity android:name=".ModifyPwdActivity" />
-        <activity android:name=".InviteActivity"></activity>
-
+        <activity android:name=".InviteActivity" />
         <activity android:name=".Lenmmon_Girl_Gift" />
         <activity android:name=".Home_Fragment_Love_oxygen_nine" />
         <activity android:name=".Home_Fragment_Code_I_Know" />
-        <activity android:name=".Home_Fragment_Love_Shequ"></activity>
-        <activity android:name=".community.CategoryDetailActivity"></activity>
-
-
-
-        <activity android:name=".MineJumpActivity"/>
-
-
+        <activity android:name=".Home_Fragment_Love_Shequ" />
+        <activity android:name=".community.CategoryDetailActivity" />
+        <activity android:name=".MineJumpActivity" />
+        <activity android:name=".wxapi.WXEntryActivity"></activity>
     </application>
 
 </manifest>

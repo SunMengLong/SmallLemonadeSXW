@@ -15,6 +15,9 @@ public class ModifyPwdActivity extends AppCompatActivity implements View.OnClick
     private EditText mf_old_pwd;
     private EditText mf_new_pwd;
     private EditText mf_next_pwd;
+    private String old_pwd;
+    private String new_pwd;
+    private String next_pwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,14 @@ public class ModifyPwdActivity extends AppCompatActivity implements View.OnClick
         mf_old_pwd = (EditText) findViewById(R.id.mf_old_pwd);
         mf_new_pwd = (EditText) findViewById(R.id.mf_new_pwd);
         mf_next_pwd = (EditText) findViewById(R.id.mf_next_pwd);
+
+
+    }
+
+    private void initPwd() {
+        old_pwd = mf_old_pwd.getText().toString().trim();
+        new_pwd = mf_new_pwd.getText().toString().trim();
+        next_pwd = mf_next_pwd.getText().toString().trim();
     }
 
     @Override

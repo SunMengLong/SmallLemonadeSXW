@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
    >
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_fragment_period"
         android:orientation="horizontal">
@@ -18,7 +18,7 @@
             android:gravity="center"
             android:textSize="20sp"
             />
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
     <WebView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
