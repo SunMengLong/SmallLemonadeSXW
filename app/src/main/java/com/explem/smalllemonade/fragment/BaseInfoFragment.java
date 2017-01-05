@@ -8,7 +8,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -28,10 +27,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.explem.smalllemonade.MineJumpActivity;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.UapdateNameAcitvity;
-
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.utils.StartUtils;
 
@@ -40,11 +37,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-
-import static com.explem.smalllemonade.R.id.mf_icon;
-import static com.explem.smalllemonade.R.id.my_icon_camera;
-import static com.explem.smalllemonade.R.id.my_icon_photo;
 
 
 /**

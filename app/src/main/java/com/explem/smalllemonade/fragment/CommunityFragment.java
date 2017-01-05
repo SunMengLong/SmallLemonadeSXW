@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
@@ -21,12 +22,13 @@ import com.explem.smalllemonade.view.ShowingPage;
  * Created by Pooh on 2016/12/27.
  */
 
-public class CommunityFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
+public class CommunityFragment extends BaseFragment implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
 
     public RadioGroup rg_community_header;
     public CommunityPagerAdapter communityPagerAdapter;
     public ViewPager vp_community_content;
     public View view;
+    private String tag_str;
 
     @Override
     protected void onload() {
@@ -57,7 +59,6 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
 
         //对头部进行监听
         rg_community_header.setOnCheckedChangeListener(this);
-
         communityPagerAdapter = new CommunityPagerAdapter(getActivity().getSupportFragmentManager());
 //
         vp_community_content.setAdapter(communityPagerAdapter);
@@ -65,19 +66,20 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
         vp_community_content.setOnPageChangeListener(this);
 
 
+        //对头部的监听
+        for (int i = 0; i < rg_community_header.getChildCount(); i++) {
+            RadioButton rb= (RadioButton) rg_community_header.getChildAt(i);
+            //添加监听
+            rb.setTag(i+"");
+            rb.setOnClickListener(this);
+        }
+
     }
     //对头部进行监听
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        for (int i = 1; i < 4; i++) {
-            RadioButton childAt = (RadioButton) rg_community_header.getChildAt(i);
-            if (childAt.getId() == checkedId){
-                childAt.setTextColor(getResources().getColor(R.color.colorYellow));
-            }else{
-                childAt.setTextColor(getResources().getColor(R.color.colorgray));
-            }
-        }
-
+        //vp_community_content.setCurrentItem(checkedId);
+        Toast.makeText(getActivity(), "...."+checkedId, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -90,12 +92,27 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
 
     @Override
     public void onPageSelected(int position) {
-
+        //设置头部的字体颜色
+        for (int i = 0; i < 3; i++) {
+            RadioButton childAt = (RadioButton) rg_community_header.getChildAt(i);
+            if (i == position){
+                childAt.setTextColor(getResources().getColor(R.color.colorYellow));
+            }else{
+                childAt.setTextColor(getResources().getColor(R.color.colorgray));
+            }
+        }
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        tag_str = (String) view.getTag();
+        int tag_int=Integer.parseInt(tag_str);
+        vp_community_content.setCurrentItem(tag_int);
     }
 
 

@@ -7,10 +7,12 @@
     >
 
     <com.zhy.autolayout.AutoLinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height">
 
         <RadioGroup
+            android:paddingLeft="100px"
             android:background="#fff"
             android:id="@+id/rg_community_header"
             android:layout_width="0px"
@@ -18,15 +20,10 @@
             android:layout_weight="4"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="0px"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:gravity="center"
-                android:text=""/>
 
             <RadioButton
+                android:id="@+id/f_comm_rb1"
+                android:textColor="@color/colorYellow"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -36,6 +33,8 @@
                 />
 
             <RadioButton
+                android:id="@+id/f_comm_rb2"
+                android:textColor="@color/colorgray"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -46,6 +45,8 @@
                 />
 
             <RadioButton
+                android:id="@+id/f_comm_rb3"
+                android:textColor="@color/colorgray"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

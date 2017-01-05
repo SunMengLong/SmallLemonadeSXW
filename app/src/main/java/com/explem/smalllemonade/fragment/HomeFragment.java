@@ -710,6 +710,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
                 ImageView img = new ImageView(getActivity());
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
                 Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
                 container.addView(img);
                 //ViewPager 点击
@@ -729,5 +730,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 container.removeView((View) object);
             }
         });
+        home_fragment_viewPager.setCurrentItem(home_fragment_lunBo_bean.getData().size()*100);
     }
 }
