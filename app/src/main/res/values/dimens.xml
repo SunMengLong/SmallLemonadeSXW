@@ -32,7 +32,6 @@
     <dimen name="home_fragment_period_pop_localv">200px</dimen>
     <dimen name="home_fragment_period_pop_localvv">5px</dimen>
 
-
     <dimen name="mf_ver_margain">16px</dimen>
     <dimen name="mf_log_off">1240px</dimen>
     <dimen name="mf_hor_margain">16px</dimen>
