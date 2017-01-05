@@ -115,15 +115,9 @@ public class CommunityFragment extends BaseFragment implements RadioGroup.OnChec
                 return  subCommunityFragment_some;
             }
         }
-
         @Override
         public int getCount() {
             return 3;
         }
     }
-
-
-
-
-
 }
