@@ -65,7 +65,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     int tag_gift = 1;
     int tag_love = 2;
     int tag_air = 3;
-    int tag_oxygen=4;
+    int tag_oxygen = 4;
     private View v;
     private TextView home_fragment_period;
     private ImageView home_fragment_note;
@@ -78,8 +78,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     int a = 0;
     private SharedPreferences.Editor edit;
     private ArrayList<String> pathList = new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist=new ArrayList<>();
-    private  ArrayList<Home_Fragment_Love_oxygen  .DataBean> oxygnlist2=new ArrayList<>();
+    private ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist = new ArrayList<>();
+    private ArrayList<Home_Fragment_Love_oxygen.DataBean> oxygnlist2 = new ArrayList<>();
 
     //  轮播图接口
     public static String path_lunbo = "http://www.yulin520.com/a2a/broadcast/files";
@@ -94,8 +94,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public static String path_air = "http://www.yulin520.com/a2a/news/dissertation";
     public static String args_air = "sign=7D4ED43C186CA4EDEB99193024F9BEF2&pageSize=1&queryData=&ts=1482905506&page=1";
     //恋爱氧气
-    public static String path_oxygen="http://www.yulin520.com/a2a/news/sd/list";
-    public  static  String args_oxygen="sign=FF249FC05B920D994BE888EBD6F68133&ts=1482905506&pageSize=6&page=1";
+    public static String path_oxygen = "http://www.yulin520.com/a2a/news/sd/list";
+    public static String args_oxygen = "sign=FF249FC05B920D994BE888EBD6F68133&ts=1482905506&pageSize=6&page=1";
     public static Dao dao;
     public static String data;
     private ViewPager home_fragment_viewPager;
@@ -462,14 +462,14 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 //选择时期
                 Peroid();
                 break;
-                //短信图片
+            //短信图片
             case R.id.home_fragment_note:
                 enterIntent(Home_Fragemnt_Note.class);
                 break;
-             //雪人图片
+            //雪人图片
             case R.id.home_fragment_snow_people:
                 PopUp();
-            break;
+                break;
             //元旦节
             case R.id.home_fragment_yuandan:
                 PopUp();
@@ -496,6 +496,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         }
 
     }
+
     //助攻节目PopWindow
     private void PopUp() {
         View vv = View.inflate(getActivity(), R.layout.home_fragment_zhugongjiemu, null);
@@ -710,6 +711,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public Object instantiateItem(ViewGroup container, int position) {
                 ImageView img = new ImageView(getActivity());
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
                 Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
                 container.addView(img);
                 //ViewPager 点击
