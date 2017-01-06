@@ -7,8 +7,6 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -40,18 +38,14 @@
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
 
-
         <activity android:name=".Lenmmon_Girl_Gift" />
         <activity android:name=".Home_Fragment_Love_oxygen_nine" />
         <activity android:name=".Home_Fragment_Code_I_Know" />
-        <activity android:name=".Home_Fragment_Love_Shequ"></activity>
-        <activity android:name=".community.CategoryDetailActivity"></activity>
-
-
-
-        <activity android:name=".MineJumpActivity"/>
-
-
+        <activity android:name=".Home_Fragment_Love_Shequ" />
+        <activity android:name=".community.CategoryDetailActivity" />
+        <activity android:name=".MineJumpActivity" />
+        <activity android:name=".Home_Fragment_LunBoMusic" />
+        <activity android:name=".Home_Fragment_Look_More"></activity>
     </application>
 
 </manifest>

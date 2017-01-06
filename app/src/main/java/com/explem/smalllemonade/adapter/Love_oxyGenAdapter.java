@@ -67,8 +67,8 @@ public class Love_oxyGenAdapter extends RecyclerView.Adapter <Love_oxyGenHolder>
                 }
             });
         }
-        holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,25)+"...");
-        holder.home_fragment_love_oxygen_title.setText(list.get(position).getTitle());
+         holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,20)+"...");
+       holder.home_fragment_love_oxygen_title.setText(list.get(position).getTitle());
         Glide.with(context).load(list.get(position).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.home_fragment_love_oxygen_img3);
         holder.home_fragment_love_oxygen_author.setText("作者："+list.get(position).getReporterName());
 

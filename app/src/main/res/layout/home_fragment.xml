@@ -124,19 +124,29 @@
                     android:layout_toRightOf="@+id/home_fragment__num"
                     android:text="天"
                     android:textSize="20sp" />
-
                 <TextView
+                    android:id="@id/home_fragment__num"
+                    android:layout_width="@dimen/home_fragment_period"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/home_fragment_snow_people"
+                    android:layout_below="@id/home_fragment_daojishi"
+                    android:layout_marginTop="@dimen/home_fragment_note"
+                    android:layout_alignLeft="@id/home_fragment_daojishi"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp"
+                    />
+               <!-- <TextView
                     android:id="@+id/home_fragment__num"
-                    android:layout_width="80px"
+                    android:layout_width="@dimen/home_fragment_period_pop_localss"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/home_fragment_daojishi"
                     android:layout_alignStart="@+id/home_fragment_daojishi"
                     android:layout_below="@+id/home_fragment_daojishi"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginStart="16dp"
                     android:text="2"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="40sp" />
+                    android:textSize="40sp" />-->
 
                 <Button
                     android:id="@+id/home_fragment__gift"
@@ -148,7 +158,7 @@
                     android:text="礼物推荐"
                     android:textColor="@color/WallColor" />
 
-                <ImageView
+                <TextView
                     android:id="@+id/home_fragment_yuandan"
                     android:layout_width="@dimen/home_fragment_period_pop_localsss"
                     android:layout_height="@dimen/home_fragment_period_pop__message_hights"
@@ -156,9 +166,10 @@
                     android:layout_alignStart="@+id/home_fragment_snow_people"
                     android:layout_below="@+id/home_fragment_snow_people"
                     android:background="#b9b9ff"
+                    android:textColor="#fff"
                     android:gravity="center"
-                    android:text="1111111111"
-                    android:textSize="20sp" />
+
+              />
             </com.zhy.autolayout.AutoRelativeLayout>
 
             <com.zhy.autolayout.AutoLinearLayout
@@ -337,6 +348,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
+            <Button
+                android:id="@+id/home_fragment_more"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period_pop_local"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="点击加载更多"
+                android:background="@color/colorWhite"
+                android:textColor="@color/popCoffeeColor" />
 
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>

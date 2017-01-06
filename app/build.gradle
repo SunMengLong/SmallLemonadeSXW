@@ -35,8 +35,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.2.1'
     compile files('libs/volley.jar')
     compile 'com.android.support:cardview-v7:24.0.0'
-    compile project(':springlibrary')
     compile 'com.zhy:magic-viewpager:1.0.1'
     compile 'com.android.support:design:24.0.0'
-    compile project(path: ':springlibrary')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile project(':springlibrary')
 }

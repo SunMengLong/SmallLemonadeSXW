@@ -50,31 +50,147 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_paddingss">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/home_fragment_love_shequ_touxiang"
             android:layout_width="@dimen/home_fragment_period_pop_local"
             android:layout_height="@dimen/home_fragment_period_pop_local"
-            android:layout_marginLeft="@dimen/common_paddingss"
-            android:src="@mipmap/profile_male" />
-            <TextView
-                android:id="@+id/home_fragment_love_shequ_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="匿名"
-                android:layout_marginLeft="@dimen/home_fragment_note"
-                android:layout_toRightOf="@id/home_fragment_love_shequ_touxiang"
-                android:layout_alignTop="@id/home_fragment_love_shequ_touxiang"/>
-            <TextView
-                android:layout_width="@dimen/home_fragment_period"
-                android:layout_height="wrap_content"
-                android:background="@color/popCoffeeColor"
-                android:gravity="center"
-                android:textColor="@color/colorWhite"
-                android:layout_marginLeft="@dimen/home_fragment_note"
-                android:layout_toRightOf="@id/home_fragment_love_shequ_name"
-                android:text="楼主"/>
+            android:layout_marginLeft="@dimen/common_paddingss" />
 
+        <TextView
+            android:id="@+id/home_fragment_love_shequ_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/home_fragment_love_shequ_touxiang"
+            android:layout_marginLeft="@dimen/home_fragment_note"
+            android:layout_toRightOf="@id/home_fragment_love_shequ_touxiang"
+            android:text="匿名" />
+
+        <TextView
+            android:layout_width="@dimen/home_fragment_period"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/home_fragment_note"
+            android:layout_toRightOf="@id/home_fragment_love_shequ_name"
+            android:background="@color/popCoffeeColor"
+            android:gravity="center"
+            android:text="楼主"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/home_fragment_love_shequ_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/home_fragment_love_shequ_name"
+            android:layout_below="@id/home_fragment_love_shequ_name"
+            android:layout_marginTop="@dimen/home_fragment_note"
+            android:layout_toRightOf="@id/home_fragment_love_shequ_touxiang"
+            android:text="12月25日  21:39" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/home_fragment_note"
+            android:src="@mipmap/article_comment_selected" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/mf_ver_margain"
+            android:layout_height="@dimen/home_fragment_period_tv_size"
+            android:layout_marginLeft="@dimen/home_fragment_period_pop__message_hight"
+            android:layout_marginTop="@dimen/home_fragment_note"
+            android:background="@color/popCoffeeColor" />
+
+        <TextView
+            android:id="@+id/home_fragment_love_shequ_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/home_fragment_note"
+            android:layout_marginTop="@dimen/home_fragment_note" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/home_fragment_love_shequ_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/home_fragment_note"
+        android:layout_marginTop="@dimen/home_fragment_note" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/home_fragment_period_pop__message_hight"
+
+        android:background="@mipmap/trans_circle"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/home_fragment_love_shequ_dianzan_che"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/home_fragment_note"
+            android:src="@mipmap/community_detail_like" />
+
+        <TextView
+            android:id="@+id/home_fragment_love_shequ_dianzan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/home_fragment_note"
+            android:text="10"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/home_fragment_love_shequ_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/home_fragment_period_tv_size"
+        android:src="@mipmap/heart_1"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/home_fragment_love_shequ_heart2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/home_fragment_period_tv_size"
+        android:src="@mipmap/heart_1"
+        android:visibility="invisible" /> <ImageView
+        android:id="@+id/home_fragment_love_shequ_heart3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/home_fragment_period_tv_size"
+        android:src="@mipmap/heart_1"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period_pop__message_hight"
+        android:layout_marginTop="@dimen/home_fragment_period_tv_size"
+        android:background="@color/Gray">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="回帖（6）" />
+
+    </RelativeLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_fragment_love_shequ_lv"></ListView>
 
 </com.zhy.autolayout.AutoLinearLayout>
