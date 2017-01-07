@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/common_padding">
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/common_padding">
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/springview_subcommunityfragment"
@@ -11,11 +10,12 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/stview_subcommunityfragment"
+            android:id="@+id/listview_subcommunityfragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#00000000"
-            android:dividerHeight="18px"></ListView>
+            android:fastScrollEnabled="false"
+            android:dividerHeight="18px"/>
 
     </com.liaoinstan.springview.widget.SpringView>
 
