@@ -4,7 +4,7 @@
     android:id="@+id/activity_uapdate_name_acitvity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGry"
+    android:background="@color/Gray"
     android:orientation="vertical">
 
     <include layout="@layout/title_line" />
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:padding="200dp"
+        android:padding="@dimen/mf_panding"
         android:text="一个好的昵称能吸引异性的注意哦~"
         android:textColor="@color/colorBlack"
         android:visibility="gone" />
@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@null"
+            android:maxLength="10"
             android:textSize="@dimen/mf_tv_hei" />
 
         <TextView
@@ -42,36 +43,66 @@
             android:text="10" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
-    <RadioGroup
-        android:id="@+id/upn_rg"
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/emotio_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/mf_hor_margain"
-        android:background="@color/colorWhite"
+        android:orientation="vertical"
         android:visibility="gone">
 
-        <RadioButton
-            android:id="@+id/upn_rb_single"
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/emotio_rela_single"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@drawable/select_selector"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/mf_panding"
-            android:text="单身期"
-            android:textSize="@dimen/mf_tv_hei" />
+            android:layout_marginTop="30px"
+            android:background="@color/colorWhite"
+            android:padding="20px">
 
-        <RadioButton
-            android:id="@+id/upn_rb_double"
+            <TextView
+                android:id="@+id/tv_single"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="单身期"
+                android:textSize="@dimen/mf_tv_hei" />
+
+            <ImageView
+                android:id="@+id/iv_single"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20px"
+                android:src="@mipmap/select_alipay" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/emotio_rela_double"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@drawable/select_selector"
-            android:gravity="center_horizontal"
-            android:padding="@dimen/mf_panding"
-            android:text="恋爱期"
-            android:textSize="@dimen/mf_tv_hei" />
-    </RadioGroup>
+            android:layout_marginTop="2px"
+            android:background="@color/colorWhite"
+            android:padding="20px">
+
+            <TextView
+                android:id="@+id/tv_double"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="恋爱期"
+                android:textSize="@dimen/mf_tv_hei" />
+
+            <ImageView
+                android:id="@+id/iv_double"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20px"
+                android:src="@mipmap/select_alipay"
+                android:visibility="gone" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/upn_rcl"

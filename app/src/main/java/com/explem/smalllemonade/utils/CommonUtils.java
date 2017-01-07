@@ -1,6 +1,7 @@
 package com.explem.smalllemonade.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -9,6 +10,8 @@ import android.view.View;
 
 import com.explem.smalllemonade.UapdateNameAcitvity;
 import com.explem.smalllemonade.application.MyApplication;
+
+import static android.R.attr.id;
 
 
 public class CommonUtils {
@@ -104,6 +107,4 @@ public class CommonUtils {
         getHandler().removeCallbacks(runnable);
     }
 
-    public static void jump(FragmentActivity activity, Class<UapdateNameAcitvity> uapdateNameAcitvityClass, int i) {
-    }
 }

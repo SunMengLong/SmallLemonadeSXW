@@ -33,6 +33,7 @@ android:padding="50px"
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/home_fragment_love_shequ_quxiao2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/home_fragment_period"
            android:layout_weight="1"
@@ -40,9 +41,10 @@ android:padding="50px"
             android:textColor="#fff"
             android:background="#f00"
             android:layout_marginLeft="@dimen/home_fragment_note"
-            android:id="@+id/button" />
+            ></Button>
 
         <Button
+            android:id="@+id/home_fragment_love_shequ_queding2"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/home_fragment_period"
            android:layout_weight="1"

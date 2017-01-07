@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home__fragment__look__more"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+
+
+    <RelativeLayout
+        android:id="@+id/sssrel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_fragment_period"
+        >
+        <ImageView
+            android:id="@+id/tuicu"
+            android:layout_centerVertical="true"
+            android:layout_width="@dimen/home_fragment_period_tv_size"
+            android:layout_height="@dimen/home_fragment_period_tv_size"
+            android:layout_marginLeft="@dimen/home_fragment_period_tv_size"
+            android:src="@mipmap/back_normal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="恋爱氧气"
+            android:gravity="center"
+        android:layout_centerInParent="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/colorGry"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/home_spring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.explem.smalllemonade.view.MyRecycleVie
+        android:layout_marginTop="20sp"
+        android:layout_below="@+id/sssrel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_fragment_lun_recycle"></com.explem.smalllemonade.view.MyRecycleVie>
+
+      </com.liaoinstan.springview.widget.SpringView>
+</LinearLayout>

@@ -65,8 +65,8 @@ public class SubCommunityFragment_Category extends BaseFragment implements View.
                 break;
             case  R.id.subcommunityfragment_five:
                 Toast.makeText(getActivity(),"five", Toast.LENGTH_SHORT).show();
-//                gotoActivity(CategoryDetailActivity.class,"five");
-                gotoActivity(HelloActivity.class,"");
+                gotoActivity(CategoryDetailActivity.class,"five");
+//                gotoActivity(HelloActivity.class,"");
                 break;
         }
 
