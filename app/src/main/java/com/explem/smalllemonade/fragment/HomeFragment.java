@@ -125,6 +125,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 //轮播图的数据适配器
                 setMyAdapter(home_fragment_lunBo_bean);
             }
+            if (msg.arg1 == tag_gift) {
+                home_fragment_giftBean = (Home_Fragment_GiftBean) msg.obj;
+                //   if (home_fragment_giftBean.getData() != null) {
+                //     Glide.with(getActivity()).load(R.mipmap.wansheng).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_snow_people);
+                home_fragment_snow_people.setImageResource(R.mipmap.wansheng);
+             //   home_fragment_yuandan.setImageResource(R.mipmap.qixi);
+            }
             //恋乎社区
             if (msg.arg1 == tag_love) {
                 loveCommunityBean = (LoveCommunityBean) msg.obj;
@@ -162,14 +169,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                                 in.putExtra("userName", loveCommunityBean.getData().get(position).getUserName());
                                 //发送的时间
                                 in.putExtra("createTime", loveCommunityBean.getData().get(position).getCreateTime());
-                                //ID
-                                in.putExtra("id", loveCommunityBean.getData().get(position).getId());
 
                                 startActivity(in);
                             }
 
                             @Override
                             public void onItemLongClick(View view, int position) {
+
                             }
                         });
                         container.addView(view);
@@ -190,6 +196,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             //恋爱氧气
             if (msg.arg1 == tag_oxygen) {
                 home_fragment_love_oxygen = (Home_Fragment_Love_oxygen) msg.obj;
+
                 for (int i = 0; i < 3; i++) {
                     oxygnlist.add(home_fragment_love_oxygen.getData().get(i));
                     String substring = oxygnlist.get(0).getStartTime().substring(5, 10);
@@ -230,7 +237,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
                         }
                     });
-
                 }
 
             }
@@ -502,10 +508,14 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 Intent intent = new Intent(getActivity(), Lenmmon_Girl_Gift.class);
 
                 startActivity(intent);
+
                 break;
             case R.id.home_fragment_love_oxygen_img2:
                 Intent in2 = new Intent(getActivity(), Home_Fragment_Code_I_Know.class);
+                //   if(home_fragment_airBean.getData()!=null){
                 in2.putExtra("url4", home_fragment_airBean.getData().get(0).getUrl());
+
+                //  }
                 startActivity(in2);
                 break;
             case R.id.home_fragment_more:
@@ -521,6 +531,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             default:
                 break;
         }
+
     }
 
     //助攻节目PopWindow
@@ -669,9 +680,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     //请求数据的方法
     public void getData(String path, String args, final int tag) {
         new BaseDate(getActivity()) {
+
             @Override
             protected void setResultError(ShowingPage.StateType stateLoadError) {
-
             }
 
             @Override
@@ -723,15 +734,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     handler.sendMessage(msg6);
                 }
             }
-        }.getDate(path, args, 1, BaseDate.NOTIME);
+        }.getDate(path, args, 1, BaseDate.NOMALTIME);
     }
 
 
     //轮播图的适配器
     public void setMyAdapter(final Home_Fragment_LunBo_Bean home_fragment_lunBo_bean) {
-
         home_fragment_viewPager.setAdapter(new PagerAdapter() {
-
             @Override
             public int getCount() {
                 return Integer.MAX_VALUE;
@@ -749,7 +758,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().
                         get(position % home_fragment_lunBo_bean.getData().size()).getImg()).
                         placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
+                img.setScaleType(ImageView.ScaleType.FIT_XY);
+                Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
                 container.addView(img);
+                //ViewPager 点击
                 img.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -763,6 +775,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 });
                 return img;
             }
+
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 container.removeView((View) object);

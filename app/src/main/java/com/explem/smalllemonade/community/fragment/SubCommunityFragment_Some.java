@@ -21,6 +21,7 @@ import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.view.ShowingPage;
+
 import com.google.gson.Gson;
 import com.liaoinstan.springview.container.DefaultHeader;
 import com.liaoinstan.springview.widget.SpringView;
@@ -35,6 +36,8 @@ import java.util.List;
 public class SubCommunityFragment_Some extends BaseFragment implements SpringView.OnFreshListener, AdapterView.OnItemClickListener{
 
     public int page = 1;
+
+
     public String pathSelected = "http://www.yulin520.com/a2a/forum/allTypeList";
     public String argsSelected = "sign=0A1CA7FA70FD4F4B1E141438594A4C10&pageSize=10&sort=2&ts=1482920553&page=1&forumType=";
 
@@ -107,13 +110,11 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
                         //手指向下滑动，让Button显示（执行显示的动画）
                         Log.i("AAAA----", downY + "------" + moveY);
                         if (moveY - downY > 70 &&!isVisbleAnimation&&iv_floating_post.getVisibility()!=View.VISIBLE) {
-                            Toast.makeText(getActivity(),"显示控件",Toast.LENGTH_SHORT).show();
                             visibleAnimation();
                             isVisbleAnimation=true;
                             moveY = downY;
                             //手指向上滑动，让Button隐藏(执行隐藏的动画)
                         } else if (downY - moveY > 70 && !isGoneAnimation) {
-                            Toast.makeText(getActivity(),"隐藏控件",Toast.LENGTH_SHORT).show();
                             moveY = downY;
                             isGoneAnimation = true;
                             goneAnimation();

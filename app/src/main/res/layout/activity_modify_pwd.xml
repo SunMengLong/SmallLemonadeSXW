@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_modify_pwd"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="@dimen/mf_ver_margain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/title_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/return_back" />
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:text="@string/mf_pwd"
+            android:textSize="@dimen/mf_tv_hei" />
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:id="@+id/title_pwd_right"
+            android:layout_width="wrap_content"
+            android:text="@string/mf_ok"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/mf_ok"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="1220px"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="30px"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/mf_pwd_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:id="@+id/mf_old_pwd"
+            android:hint="请输入旧的密码"
+            />
+        <TextView
+            android:id="@+id/mf_pwd_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mf_new_pwd"
+            android:layout_marginTop="20px"
+            android:hint="请输入新的密码"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mf_pwd_tv3"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:id="@+id/mf_next_pwd"
+            android:hint="请再次输入新的密码"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

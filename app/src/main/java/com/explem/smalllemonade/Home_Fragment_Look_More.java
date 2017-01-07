@@ -74,6 +74,7 @@ public class Home_Fragment_Look_More extends AppCompatActivity implements View.O
         home_fragment_lun_recycle.setLayoutManager(new LinearLayoutManager(this));
         ImageView tuicu = (ImageView) findViewById(R.id.tuicu);
         getNet(path_oxygen,args_oxygen,GETDATE_FIRST,page);
+       home_spring.setType(SpringView.Type.FOLLOW);
         tuicu.setOnClickListener(this);
         home_spring.setHeader(new DefaultHeader(this));
         home_spring.setFooter(new DefaultFooter(this));

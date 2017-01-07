@@ -71,10 +71,7 @@ public class LoveRecycleAdapter extends RecyclerView.Adapter<LoveRecycleHolder> 
                 }
             });
         }
-
-
     }
-
     @Override
     public int getItemCount() {
         return 3;

@@ -1,7 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">60dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="header_height">100px</dimen>
     <dimen name="common_padding">10px</dimen>
     <dimen name="common_paddingss">50px</dimen>
@@ -16,7 +16,7 @@
     <dimen name="home_fragment_period_pop_localssss">180px</dimen>
 
     //短信图片
-    <dimen name="home_fragment_note">30px</dimen>
+    <dimen name="home_fragment_note">40px</dimen>
     <dimen name="home_fragment_period_tv_size">40px</dimen>
     <dimen name="home_fragment_period_pop_hight">600px</dimen>
     <dimen name="home_fragment_period_pop_wigth">2px</dimen>
@@ -32,9 +32,10 @@
     <dimen name="home_fragment_period_pop_localv">200px</dimen>
     <dimen name="home_fragment_period_pop_localvv">5px</dimen>
 
-
-    <dimen name="mf_ver_margain">8px</dimen>
+    <dimen name="mf_ver_margain">16px</dimen>
+    <dimen name="mf_log_off">1240px</dimen>
     <dimen name="mf_hor_margain">16px</dimen>
-    <dimen name="mf_tv_hei">20dp</dimen>
+    <dimen name="mf_tv_hei">60px</dimen>
+    <dimen name="mf_ok">40px</dimen>
     <dimen name="mf_panding">30px</dimen>
 </resources>

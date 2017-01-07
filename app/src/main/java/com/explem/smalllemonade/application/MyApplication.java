@@ -5,6 +5,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Process;
 
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
+
 import org.xutils.x;
 
 
@@ -40,6 +43,8 @@ public class MyApplication extends Application{
         mainId = Process.myTid();
         //获取主线程
         thread = Thread.currentThread();
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        UMShareAPI.get(this);
     }
     //上下文的方法
     public static Context getConText(){

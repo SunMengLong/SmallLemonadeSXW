@@ -39,11 +39,9 @@ public class CategoryDetailActivity extends BaseActivity implements View.OnClick
         findViewById(R.id.tv_community_ditail_edit).setOnClickListener(this);
         findViewById(R.id.tv_community_ditail_bar).setOnClickListener(this);
 
-
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         CategoryFragment categoryFragment = CategoryFragment.getFragment(flag);
-        Log.i("hahaha","要传过去的"+flag);
         transaction.add(R.id.framelayout_community_category, categoryFragment, "first").commit();
     }
 
