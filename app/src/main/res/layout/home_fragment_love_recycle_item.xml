@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20px"
+        />
+    <com.zhy.autolayout.AutoLinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:padding="30px"
+        android:background="#fff"
+        android:textColor="#323232"
+        android:id="@+id/home_fragment__love_recycle_tv"
+        android:layout_width="840px"
+        android:layout_marginLeft="@dimen/home_fragment_note"
+        android:layout_height="210px"
+        android:textSize="15sp" />
 
     <ImageView
+        android:layout_marginRight="10px"
         android:id="@+id/home_fragment__love_recycle_img"
-        android:layout_width="@dimen/home_fragment_period_pop_localsss"
-        android:layout_height="80dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
+        android:layout_width="400px"
+        android:layout_height="200px"
+        android:layout_marginTop="10px"
          />
 
-    <android.support.v7.widget.CardView
-        android:layout_centerInParent="true"
-        android:layout_width="match_parent"
-        android:layout_alignTop="@id/home_fragment__love_recycle_img"
-        android:layout_height="80dp"
-        app:cardBackgroundColor="@color/colorWhite"
-        android:layout_alignBottom="@id/home_fragment__love_recycle_img"
-        android:layout_toLeftOf="@id/home_fragment__love_recycle_img">
-        <TextView
-                android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:id="@+id/home_fragment__love_recycle_tv"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="@dimen/home_fragment_note"
-            android:layout_height="100dp"
-            android:textSize="20sp" />
-
-    </android.support.v7.widget.CardView>
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_alignTop="@id/home_fragment__love_recycle_img"-->
+        <!--android:layout_height="220px"-->
+        <!--app:cardBackgroundColor="@color/colorWhite"-->
+        <!--android:layout_alignBottom="@id/home_fragment__love_recycle_img"-->
+        <!--android:layout_toLeftOf="@id/home_fragment__love_recycle_img">-->
 
 
+    <!--</android.support.v7.widget.CardView>-->
 
-</com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -8,7 +8,6 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -123,6 +122,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 //拿圆点
                 getDoc(home_fragment_lunBo_bean);
                 //轮播图的数据适配器
+//                //将多余的数据清除掉
+//                if(home_fragment_lunBo_bean.getData().size()>5){
+//                    for (int i = 5; i < home_fragment_lunBo_bean.getData().size(); i++) {
+//                        home_fragment_lunBo_bean.getData().remove(i);
+//                    }
+//                }
                 setMyAdapter(home_fragment_lunBo_bean);
             }
             if (msg.arg1 == tag_gift) {
@@ -390,9 +395,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 for (int i = 0; i < 4; i++) {
                     ImageView image = (ImageView) home_fragment__love_lin.getChildAt(i);
                     if (position == i) {
-                        image.setImageResource(R.drawable.dot_focuse);
+                        image.setImageResource(R.drawable.dot_focuse2);
                     } else {
-                        image.setImageResource(R.drawable.dot_normal);
+                        image.setImageResource(R.drawable.dot_normal2);
                     }
                 }
             }
@@ -417,12 +422,14 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         for (int i = 0; i < 4; i++) {
             ImageView imageView = new ImageView(getActivity());
             if (i == 0) {
-                imageView.setImageResource(R.drawable.dot_focuse);
+                imageView.setImageResource(R.drawable.dot_focuse2);
             } else {
-                imageView.setImageResource(R.drawable.dot_normal);
+                imageView.setImageResource(R.drawable.dot_normal2);
             }
-            LinearLayoutCompat.LayoutParams params = new LinearLayoutCompat.LayoutParams(20, 20);
-            params.setMargins(5, 0, 5, 0);
+            // 设置小点的默认宽高为20dp
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
+            // 设置小点的间距
+            params.setMargins(7, 0, 7, 0);
             home_fragment__love_lin.addView(imageView, params);
             loveList.add(imageView);
         }
@@ -439,15 +446,15 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 ImageView imageView = new ImageView(getActivity());
                 if (i == 0) {
                     // 如果是第一张，默认给一个亮的小点
-                    imageView.setImageResource(R.mipmap.navpoint_selected2x);
+                    imageView.setImageResource(R.drawable.dot_focuse);
                 } else {
                     // 如果不是滴一个，默认给一个暗的小点
-                    imageView.setImageResource(R.mipmap.navpoint_unselected2x);
+                    imageView.setImageResource(R.drawable.dot_normal);
                 }
                 // 设置小点的默认宽高为20dp
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(30, 30);
                 // 设置小点的间距
-                params.setMargins(5, 0, 5, 0);
+                params.setMargins(7, 0, 7, 0);
                 home_fragment_lin.addView(imageView, params);
                 // 往小点集合中添加view
                 docList.add(imageView);
@@ -460,7 +467,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private void getLunBoAnim() {
         home_fragment_viewPager.setOffscreenPageLimit(3);
         home_fragment_viewPager.setPageMargin(50);
-        home_fragment_viewPager.setCurrentItem(3000);
+        home_fragment_viewPager.setCurrentItem(2500);
         //给轮播图设置动画
         home_fragment_viewPager.setPageTransformer(true,
                 new AlphaPageTransformer(new AlphaPageTransformer(new ScaleInTransformer())));
@@ -765,16 +772,19 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
-                ImageView img = new ImageView(getActivity());
-                img.setScaleType(ImageView.ScaleType.FIT_XY);
+                View lunbo_view=View.inflate(getActivity(),R.layout.lunbo_view,null);
+                //查找控件
+                ImageView lunbo_img1= (ImageView) lunbo_view.findViewById(R.id.lunbo_img1);
+                ImageView lunbo_img2= (ImageView) lunbo_view.findViewById(R.id.lunbo_img2);
+                //ImageView img = new ImageView(getActivity());
                 Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().
                         get(position % home_fragment_lunBo_bean.getData().size()).getImg()).
-                        placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
-                img.setScaleType(ImageView.ScaleType.FIT_XY);
-                Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(img);
-                container.addView(img);
+                        placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(lunbo_img1);
+                lunbo_img1.setScaleType(ImageView.ScaleType.FIT_XY);
+                Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(lunbo_img1);
+                container.addView(lunbo_view);
                 //ViewPager 点击
-                img.setOnClickListener(new View.OnClickListener() {
+                lunbo_img1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         Intent in = new Intent(getActivity(), Home_Fragment_LunBoMusic.class);
@@ -785,7 +795,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                         startActivity(in);
                     }
                 });
-                return img;
+                return lunbo_view;
             }
 
             @Override
