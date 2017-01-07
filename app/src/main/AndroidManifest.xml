@@ -36,11 +36,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
         </activity>
         <activity
             android:name="com.tencent.tauth.AuthActivity"
@@ -66,27 +62,27 @@
         <meta-data
             android:name="design_height"
             android:value="1920" />
+
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".view.Home_Fragemnt_Note"></activity>
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
             android:value="GlideModule" />
 
-        <activity android:name=".MineJumpActivity" />
         <activity android:name=".DaoHangActivity">
+        </activity>
+        <activity android:name=".TiaoZhuanActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TiaoZhuanActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".WangJiActivity" />
         <activity android:name=".ZhuceActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".ViewDemoActivity"></activity>
-        <activity android:name=".community.CategoryDetailActivity" />
         android:value="GlideModule" />
         <activity android:name=".UapdateNameAcitvity" />
         <activity android:name=".ModifyPwdActivity" />
@@ -95,6 +91,10 @@
         <activity android:name=".Lenmmon_Girl_Gift" />
         <activity android:name=".Home_Fragment_Love_oxygen_nine" />
         <activity android:name=".Home_Fragment_Code_I_Know" />
+        <activity android:name=".community.CategoryDetailActivity" />
+        <activity android:name=".MineJumpActivity" />
+        <activity android:name=".Home_Fragment_LunBoMusic" />
+        <activity android:name=".Home_Fragment_Look_More"></activity>
         <activity android:name=".Home_Fragment_Love_Shequ"></activity>
 
 

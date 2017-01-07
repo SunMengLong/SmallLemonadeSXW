@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/home_fragment_love_oxygen_img3"
-        android:layout_width="@dimen/home_fragment_period_pop_localv"
-        android:layout_height="@dimen/home_fragment_period_pop_localv"
+        android:layout_width="@dimen/home_fragment_period_pop_localsss"
+        android:layout_height="@dimen/home_fragment_period_pop_localsss"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="@dimen/home_fragment_period_tv_size"

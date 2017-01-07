@@ -1,12 +1,13 @@
 package com.explem.smalllemonade.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by asus on 2016/12/31.
  */
 
-public class Home_Fragment_Love_oxygen {
+public class Home_Fragment_Love_oxygen implements Serializable {
 
     /**
      * code : 1
@@ -89,7 +90,7 @@ public class Home_Fragment_Love_oxygen {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable  {
         private Object yuLinUser;
         private String url;
         private String reporterName;
