@@ -56,7 +56,7 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
 
         holder.tv_subcommunity_title.setText(list.get(position).getTitle());
         holder.tv_subcommunity_content.setText(list.get(position).getContent());
-//        holder.tv_subcommunity_name.setText(list.get(position).getUserName());
+        holder.tv_subcommunity_name.setText(list.get(position).getUserName());
         holder.tv_subcommunity_replyTimes.setText(list.get(position).getReplyTimes() + "");
         setAnimation(holder.view,position);
 

@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:background="@color/colorgray"
+              android:background="@color/LightGray"
               android:layout_height="match_parent"
     >
 
     <com.zhy.autolayout.AutoLinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="@dimen/header_height">
 
+        <TextView
+            android:background="#fff"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            />
+
         <RadioGroup
-            android:paddingLeft="100px"
             android:background="#fff"
             android:id="@+id/rg_community_header"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:orientation="horizontal">
 
-
             <RadioButton
-                android:id="@+id/f_comm_rb1"
-                android:textColor="@color/colorYellow"
-                android:layout_width="0px"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:button="@null"
-                android:gravity="center"
-                android:text="板块"
-                />
-
-            <RadioButton
-                android:id="@+id/f_comm_rb2"
-                android:textColor="@color/colorgray"
+                android:textColor="@drawable/community_header_color_selector"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
+                android:text="板块"
+                />
+
+            <RadioButton
+                android:textColor="@drawable/community_header_color_selector"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
                 android:text="精选"
                 />
 
             <RadioButton
-                android:id="@+id/f_comm_rb3"
-                android:textColor="@color/colorgray"
+                android:textColor="@drawable/community_header_color_selector"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -54,8 +56,6 @@
                 android:gravity="center"
                 android:text="全部"
                 />
-
-
         </RadioGroup>
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -63,7 +63,6 @@
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
 
             <ImageView
                 android:layout_width="0px"
@@ -82,6 +81,7 @@
         </com.zhy.autolayout.AutoLinearLayout>
 
     </com.zhy.autolayout.AutoLinearLayout>
+
 
 
     <android.support.v4.view.ViewPager

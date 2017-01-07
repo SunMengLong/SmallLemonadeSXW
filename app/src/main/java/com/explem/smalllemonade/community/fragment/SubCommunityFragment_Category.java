@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.community.CategoryDetailActivity;
+import com.explem.smalllemonade.community.holder.HelloActivity;
 import com.explem.smalllemonade.fragment.MineFragment;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.view.ShowingPage;
@@ -65,6 +66,7 @@ public class SubCommunityFragment_Category extends BaseFragment implements View.
             case  R.id.subcommunityfragment_five:
                 Toast.makeText(getActivity(),"five", Toast.LENGTH_SHORT).show();
                 gotoActivity(CategoryDetailActivity.class,"five");
+//                gotoActivity(HelloActivity.class,"");
                 break;
         }
 

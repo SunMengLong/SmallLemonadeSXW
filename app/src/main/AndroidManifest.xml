@@ -96,6 +96,7 @@
         <activity android:name=".Home_Fragment_LunBoMusic" />
         <activity android:name=".Home_Fragment_Look_More"></activity>
         <activity android:name=".Home_Fragment_Love_Shequ"></activity>
+        <activity android:name=".community.holder.HelloActivity"></activity>
 
 
     </application>
