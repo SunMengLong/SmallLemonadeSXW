@@ -5,10 +5,13 @@
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
+        android:padding="20px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!--恋爱时期-->
         <TextView
+            android:layout_centerVertical="true"
+            android:textColor="#323232"
             android:id="@+id/home_fragment_period"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/home_fragment_period"
@@ -18,15 +21,15 @@
             android:textSize="@dimen/home_fragment_period_tv_size" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+        android:layout_height="100px"
             android:layout_centerInParent="true"
             android:src="@mipmap/home_nvbar_logo" />
 
         <ImageView
             android:id="@+id/home_fragment_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100px"
+            android:layout_height="100px"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/home_fragment_note"
@@ -45,18 +48,19 @@
 
             <com.zhy.autolayout.AutoFrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="600px"
                 android:layout_centerInParent="true"
                 android:background="@color/Gray"
                 android:clipChildren="false">
 
                 <android.support.v4.view.ViewPager
+                    android:layout_marginTop="20px"
                     android:id="@+id/home_fragment_viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="600px"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginRight="60dp"
+                    android:layout_marginLeft="150px"
+                    android:layout_marginRight="150px"
                     android:clipChildren="false"></android.support.v4.view.ViewPager>
 
             </com.zhy.autolayout.AutoFrameLayout>
@@ -77,12 +81,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_marginTop="10px"
+                    android:layout_width="5px"
                     android:layout_height="@dimen/home_fragment_period_tv_size"
                     android:layout_marginLeft="@dimen/home_fragment_note"
                     android:background="@color/popCoffeeColor" />
 
                 <TextView
+                    android:textColor="#323232"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/home_fragment_note"
@@ -107,22 +113,25 @@
                     android:background="#b9b9ff" />
 
                 <TextView
+                    android:textColor="#323232"
+                    android:paddingTop="20px"
                     android:id="@+id/home_fragment_daojishi"
-                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_width="400px"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/home_fragment_daojishi"
-                    android:layout_marginLeft="@dimen/home_fragment_period_pop_locals"
+                    android:layout_marginLeft="100px"
                     android:layout_toRightOf="@id/home_fragment_snow_people"
                     android:text="倒计时"
                     android:textSize="30sp" />
 
                 <TextView
+                    android:layout_marginTop="20px"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@+id/home_fragment__num"
                     android:layout_toEndOf="@+id/home_fragment__num"
                     android:layout_toRightOf="@+id/home_fragment__num"
-                    android:text="天"
+                    android:text="  天"
                     android:textSize="20sp" />
                 <TextView
                     android:id="@id/home_fragment__num"
@@ -150,10 +159,10 @@
 
                 <Button
                     android:id="@+id/home_fragment__gift"
-                    android:layout_width="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_width="300px"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@id/home_fragment_daojishi"
-                    android:layout_marginTop="@dimen/home_fragment_period_pop_localsss"
+                    android:layout_marginTop="385px"
                     android:background="@drawable/home_fragment_three"
                     android:text="礼物推荐"
                     android:textColor="@color/WallColor" />
@@ -186,7 +195,8 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_marginTop="10px"
+                    android:layout_width="5px"
                     android:layout_height="@dimen/home_fragment_period_tv_size"
                     android:layout_marginLeft="@dimen/home_fragment_note"
                     android:background="@color/popCoffeeColor" />
@@ -214,19 +224,22 @@
                 android:gravity="center"></com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:padding="20px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/home_fragment_period_tv_size">
                 //恋爱氧气
 
                 <TextView
+                    android:layout_marginTop="15px"
                     android:id="@+id/home_fragment_love_oxygen"
-                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_width="5px"
                     android:layout_height="@dimen/home_fragment_period_tv_size"
                     android:layout_marginLeft="@dimen/home_fragment_note"
                     android:background="@color/popCoffeeColor" />
 
                 <TextView
+                    android:textColor="#323232"
                     android:id="@+id/home_fragment_love_oxygen_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,9 +256,11 @@
                     android:src="@mipmap/home_more_large" />
 
                 <TextView
+                    android:textColor="#323232"
+                    android:gravity="center"
                     android:id="@+id/home_fragment_love_oxygen_tv2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60px"
                     android:layout_marginRight="@dimen/home_fragment_note"
                     android:layout_toLeftOf="@id/home_fragment_love_oxygen_img"
                     android:text="往期" />
@@ -265,12 +280,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="@dimen/mf_ver_margain"
+                    android:layout_marginTop="10px"
+                    android:layout_width="5px"
                     android:layout_height="@dimen/home_fragment_period_tv_size"
                     android:layout_marginLeft="@dimen/home_fragment_note"
                     android:background="@color/popCoffeeColor" />
 
                 <TextView
+                    android:textColor="#323232"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/home_fragment_note"
@@ -278,9 +295,10 @@
             </com.zhy.autolayout.AutoLinearLayout>
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_marginBottom="20px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_fragment_period_pop_localss"
+                android:layout_marginTop="20px"
                 android:orientation="horizontal">
 
                 <TextView
@@ -314,9 +332,10 @@
 
 
             <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_marginBottom="20px"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_fragment_period_pop_localss"
+                android:layout_marginTop="20px"
                 android:orientation="horizontal">
 
                 <TextView

@@ -82,8 +82,8 @@
         <activity android:name=".WangJiActivity" />
         <activity android:name=".ZhuceActivity" />
         <activity android:name=".WebViewActivity" />
-        <activity android:name=".ViewDemoActivity"></activity>
-        android:value="GlideModule" />
+        <activity android:name=".ViewDemoActivity"/>
+        <!--android:value="GlideModule" />-->
         <activity android:name=".UapdateNameAcitvity" />
         <activity android:name=".ModifyPwdActivity" />
         <activity android:name=".InviteActivity"></activity>
