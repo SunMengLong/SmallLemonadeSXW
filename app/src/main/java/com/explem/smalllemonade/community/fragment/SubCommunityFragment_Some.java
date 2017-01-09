@@ -90,7 +90,6 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
 
         iv_floating_post = (ImageView) view.findViewById(R.id.iv_floating_post);
 
-
         springview_subcommunityfragment = (SpringView) view.findViewById(R.id.springview_subcommunityfragment);
         springview_subcommunityfragment.setHeader(new DefaultHeader(getActivity()));
         springview_subcommunityfragment.setFooter(new DefaultHeader(getActivity()));
@@ -100,7 +99,10 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
         listview_subcommunityfragment.setOnItemClickListener(this);
         if (type == 0) {
             iv_floating_post.setVisibility(View.GONE);
-
+        } else {
+            iv_floating_post.setVisibility(View.VISIBLE);
+        }
+        if (iv_floating_post.getVisibility() == View.VISIBLE) {
             listview_subcommunityfragment.setOnTouchListener(new View.OnTouchListener() {
                 private float downY;
 
@@ -133,8 +135,6 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
                     return false;
                 }
             });
-        } else {
-            iv_floating_post.setVisibility(View.VISIBLE);
         }
         iv_floating_post.setOnClickListener(this);
 
