@@ -11,11 +11,12 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/stview_subcommunityfragment"
+            android:id="@+id/listview_subcommunityfragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#00000000"
-            android:dividerHeight="18px"></ListView>
+            android:fastScrollEnabled="false"
+            android:dividerHeight="18px"/>
 
     </com.liaoinstan.springview.widget.SpringView>
 

@@ -3,12 +3,15 @@ package com.explem.smalllemonade.community.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -45,7 +48,7 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     public String argsAll = "sign=1ED39AA49B6594114FB04896D4716775&pageSize=10&sort=2&ts=1482920354&page=1&forumType=";
     public List<CommunityContent.Data> dataList;
     public View view;
-    public int type=0;
+    public int type;
     public MyBaseData myBaseData;
     public SpringView springview_subcommunityfragment;
     public SubCommunityFragmentAdapter adapter;
@@ -59,8 +62,8 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     @Override
     protected void onload() {
 
-//        Bundle bundle = getArguments();
-//        type = bundle.getInt("type");
+        Bundle bundle = getArguments();
+        type = bundle.getInt("type");
         myBaseData = new MyBaseData(getActivity());
 
         getWebData(page);
@@ -78,7 +81,7 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     @Override
     protected View createSuccessView() {
         view = CommonUtils.inflate(R.layout.subcommunityfragment_all);
-        listview_subcommunityfragment = (ListView) view.findViewById(R.id.stview_subcommunityfragment);
+        listview_subcommunityfragment = (ListView) view.findViewById(R.id.listview_subcommunityfragment);
 
         iv_floating_post = (ImageView) view.findViewById(R.id.iv_floating_post);
 

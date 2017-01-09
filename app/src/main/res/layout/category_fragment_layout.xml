@@ -16,7 +16,7 @@
 
             <com.explem.smalllemonade.view.MyListView
                 android:divider="@null"
-                android:focusable="true"
+                android:focusable="false"
                 android:id="@+id/listview_category_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

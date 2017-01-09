@@ -22,6 +22,15 @@ public class CommunityContent {
         private String title;
         private String replyTimes;
         private int id;
+        private String userName;
+
+        public String getUserName() {
+            return userName;
+        }
+
+        public void setUserName(String userName) {
+            this.userName = userName;
+        }
 
         public String getContent() {
             return content;

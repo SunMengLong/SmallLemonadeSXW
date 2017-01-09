@@ -2,6 +2,7 @@ package com.explem.smalllemonade.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -36,6 +37,8 @@ public class Love_oxyGenAdapter extends RecyclerView.Adapter <Love_oxyGenHolder>
     public Love_oxyGenAdapter(Context context , List<Home_Fragment_Love_oxygen.DataBean> list) {
         this.context=context;
         this.list=list;
+
+        Log.i("lllllllll","Love_oxyGenAdapter: ......"+list.size());
     }
 
 
@@ -48,7 +51,7 @@ public class Love_oxyGenAdapter extends RecyclerView.Adapter <Love_oxyGenHolder>
 
     @Override
     public void onBindViewHolder(final Love_oxyGenHolder holder, int position) {
-
+        Log.i("lllllllll",position+"onBindViewHolder: ......"+list.size());
         // 如果设置了回调，则设置点击事件
         if (mOnItemClickLitener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +70,23 @@ public class Love_oxyGenAdapter extends RecyclerView.Adapter <Love_oxyGenHolder>
                 }
             });
         }
-        if(list.get(position).getContentIntr().length()<=26){
-            holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr());
-        }else{
-            holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,25)+"...");
+//        if(list.get(position).getContentIntr().length()<=26){
+//            holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr());
+//        }else{
+//            holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,25)+"...");
+//        }
+//         holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,20)+"...");
+        if(list.size()==1){
+            list.add(list.get(0));
+            list.add(list.get(0));
+        }
+       holder.home_fragment_love_oxygen_title.setText(list.get(position).getTitle());
+        if(list.get(position).getContentIntr()!=null){
+            if(list.get(position).getContentIntr().length()<=26){
+                holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr());
+            }else{
+                holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,25)+"...");
+            }
         }
         holder.home_fragment_love_oxygen_title.setText(list.get(position).getTitle());
         Glide.with(context).load(list.get(position).getImg()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.home_fragment_love_oxygen_img3);

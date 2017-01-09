@@ -48,7 +48,6 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
         //找控件
         initView();
         getIntentData();
-
     }
 
     //判断跳转的类型 显示不同的页面
@@ -77,7 +76,6 @@ public class UapdateNameAcitvity extends AppCompatActivity implements View.OnCli
                 title_tvtitle.setText("选择职业");
                 title_tvright.setText("取消");
                 break;
-
         }
     }
 

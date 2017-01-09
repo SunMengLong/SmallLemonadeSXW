@@ -8,15 +8,15 @@
 
 
     //时期
-    <dimen name="home_fragment_period">100px</dimen>
+    <dimen name="home_fragment_period">60px</dimen>
     <dimen name="home_fragment_period_pop_local">200px</dimen>
-    <dimen name="home_fragment_period_pop_locals">300px</dimen>
-    <dimen name="home_fragment_period_pop_localsss">400px</dimen>
+    <dimen name="home_fragment_period_pop_locals">400px</dimen>
+    <dimen name="home_fragment_period_pop_localsss">500px</dimen>
     <dimen name="home_fragment_period_pop_localss">150px</dimen>
     <dimen name="home_fragment_period_pop_localssss">180px</dimen>
 
     //短信图片
-    <dimen name="home_fragment_note">40px</dimen>
+    <dimen name="home_fragment_note">20px</dimen>
     <dimen name="home_fragment_period_tv_size">40px</dimen>
     <dimen name="home_fragment_period_pop_hight">600px</dimen>
     <dimen name="home_fragment_period_pop_wigth">2px</dimen>
@@ -28,7 +28,7 @@
     <dimen name="home_fragment_period_width">1000px</dimen>
     <dimen name="home_fragment_period_widthss">800px</dimen>
     <dimen name="home_fragment_period_widths">350px</dimen>
-    <dimen name="home_fragment_period_widthsv">900px</dimen>
+    <dimen name="home_fragment_period_widthsv">700px</dimen>
     <dimen name="home_fragment_period_pop_localv">200px</dimen>
     <dimen name="home_fragment_period_pop_localvv">5px</dimen>
 
