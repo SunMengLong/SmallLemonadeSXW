@@ -1,6 +1,7 @@
 package com.explem.smalllemonade.community.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -17,8 +18,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.explem.smalllemonade.Home_Fragment_Love_Shequ;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
+import com.explem.smalllemonade.community.PostActivity;
 import com.explem.smalllemonade.community.adapter.SubCommunityFragmentAdapter;
 import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.utils.BaseDate;
@@ -36,16 +39,18 @@ import java.util.List;
  * Created by Administrator on 2016/12/28 0028.
  */
 
-public class SubCommunityFragment_Some extends BaseFragment implements SpringView.OnFreshListener, AdapterView.OnItemClickListener{
+public class SubCommunityFragment_Some extends BaseFragment implements SpringView.OnFreshListener, AdapterView.OnItemClickListener, View.OnClickListener {
 
     public int page = 1;
 
 
     public String pathSelected = "http://www.yulin520.com/a2a/forum/allTypeList";
-    public String argsSelected = "sign=0A1CA7FA70FD4F4B1E141438594A4C10&pageSize=10&sort=2&ts=1482920553&page=1&forumType=";
+    //    public String argsSelected = "sign=0A1CA7FA70FD4F4B1E141438594A4C10&pageSize=10&sort=2&ts=1482920553&page=1&forumType=";
+    public String argsSelected = "sign=0A1CA7FA70FD4F4B1E141438594A4C10&pageSize=10&sort=2&ts=1482920553&forumType=0&page=";
 
     public String pathAll = "http://www.yulin520.com/a2a/forum/allTypeList";
-    public String argsAll = "sign=1ED39AA49B6594114FB04896D4716775&pageSize=10&sort=2&ts=1482920354&page=1&forumType=";
+    //    public String argsAll = "sign=1ED39AA49B6594114FB04896D4716775&pageSize=10&sort=2&ts=1482920354&page=1&forumType=";
+    public String argsAll = "sign=1ED39AA49B6594114FB04896D4716775&pageSize=10&sort=2&ts=1482920354&forumType=0&page=";
     public List<CommunityContent.Data> dataList;
     public View view;
     public int type;
@@ -85,11 +90,6 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
 
         iv_floating_post = (ImageView) view.findViewById(R.id.iv_floating_post);
 
-        if (type == 0) {
-            iv_floating_post.setVisibility(View.GONE);
-        } else {
-            iv_floating_post.setVisibility(View.VISIBLE);
-        }
 
         springview_subcommunityfragment = (SpringView) view.findViewById(R.id.springview_subcommunityfragment);
         springview_subcommunityfragment.setHeader(new DefaultHeader(getActivity()));
@@ -98,39 +98,45 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
         springview_subcommunityfragment.setType(SpringView.Type.FOLLOW);
 
         listview_subcommunityfragment.setOnItemClickListener(this);
-        listview_subcommunityfragment.setOnTouchListener(new View.OnTouchListener() {
+        if (type == 0) {
+            iv_floating_post.setVisibility(View.GONE);
 
-            private float downY;
+            listview_subcommunityfragment.setOnTouchListener(new View.OnTouchListener() {
+                private float downY;
 
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        downY = motionEvent.getY();
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        float moveY = motionEvent.getY();
-                        //手指向下滑动，让Button显示（执行显示的动画）
-                        Log.i("AAAA----", downY + "------" + moveY);
-                        if (moveY - downY > 70 &&!isVisbleAnimation&&iv_floating_post.getVisibility()!=View.VISIBLE) {
-                            visibleAnimation();
-                            isVisbleAnimation=true;
-                            moveY = downY;
-                            //手指向上滑动，让Button隐藏(执行隐藏的动画)
-                        } else if (downY - moveY > 70 && !isGoneAnimation) {
-                            moveY = downY;
-                            isGoneAnimation = true;
-                            goneAnimation();
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        isGoneAnimation = false;
-                        isVisbleAnimation=false;
-                        break;
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            downY = motionEvent.getY();
+                            break;
+                        case MotionEvent.ACTION_MOVE:
+                            float moveY = motionEvent.getY();
+                            //手指向下滑动，让Button显示（执行显示的动画）
+                            Log.i("AAAA----", downY + "------" + moveY);
+                            if (moveY - downY > 70 && !isVisbleAnimation && iv_floating_post.getVisibility() != View.VISIBLE) {
+                                visibleAnimation();
+                                isVisbleAnimation = true;
+                                moveY = downY;
+                                //手指向上滑动，让Button隐藏(执行隐藏的动画)
+                            } else if (downY - moveY > 70 && !isGoneAnimation) {
+                                moveY = downY;
+                                isGoneAnimation = true;
+                                goneAnimation();
+                            }
+                            break;
+                        case MotionEvent.ACTION_UP:
+                            isGoneAnimation = false;
+                            isVisbleAnimation = false;
+                            break;
+                    }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        } else {
+            iv_floating_post.setVisibility(View.VISIBLE);
+        }
+        iv_floating_post.setOnClickListener(this);
 
         initAdapter();
 
@@ -197,7 +203,28 @@ public class SubCommunityFragment_Some extends BaseFragment implements SpringVie
     //list条目监听
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getActivity(), "this is item NO." + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+        intent.putExtra("id", dataList.get(position).getId());
+        intent.putExtra("headImage", dataList.get(position).getHeadImg());
+        intent.putExtra("userName", dataList.get(position).getUserName());
+        intent.putExtra("createTime", dataList.get(position).getCreateTime());
+        intent.putExtra("content", dataList.get(position).getContent());
+        intent.putExtra("title", dataList.get(position).getTitle());
+        startActivity(intent);
+
+//        Toast.makeText(getActivity(), "this is item NO." + position, Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.iv_floating_post:
+                Intent intent = new Intent(getActivity(), PostActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 
     //请求数据

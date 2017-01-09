@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/LightGray"
+    android:orientation="vertical"
+    android:id="@+id/activity_post"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+    <com.zhy.autolayout.AutoLinearLayout
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/return_back"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="60px"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="发帖"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40px"
+            android:layout_marginRight="30px"
+            android:layout_gravity="center_vertical"
+            android:text="完成"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <EditText
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="20px"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:hint="请输入标题（30字）"/>
+
+
+    <EditText
+        android:gravity="left|top"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="15px"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:maxEms="1000"
+        android:hint="请输入内容（1000字）"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@mipmap/community_detail_comment_pic"
+            android:button="@null"/>
+        <ImageView
+            android:layout_marginLeft="10px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/express"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:layout_marginTop="5px"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="#7f000000"/>
+
+    <ImageView
+        android:id="@+id/iv_post"
+        android:layout_marginTop="10px"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/forum_image_add"/>
+    <TextView
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="长按条目可以拖拽"/>
+
+</LinearLayout>

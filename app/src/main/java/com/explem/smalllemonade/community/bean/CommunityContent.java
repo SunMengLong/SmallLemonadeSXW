@@ -24,6 +24,15 @@ public class CommunityContent {
         private int id;
         private String userName;
         private long createTime;
+        private String headImg;
+
+        public String getHeadImg() {
+            return headImg;
+        }
+
+        public void setHeadImg(String headImg) {
+            this.headImg = headImg;
+        }
 
         public long getCreateTime() {
             return createTime;

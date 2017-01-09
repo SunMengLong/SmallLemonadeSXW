@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.explem.smalllemonade">
+          package="com.explem.smalllemonade">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
 
     <application
         android:name=".application.MyApplication"
@@ -32,73 +31,78 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="585dcfcf2ae85b2913002bc8" />
+            android:value="585dcfcf2ae85b2913002bc8"/>
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
-
         </activity>
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="tencent100424468" />
+                <data android:scheme="tencent100424468"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
         <meta-data
             android:name="design_width"
-            android:value="1280" />
+            android:value="1280"/>
         <meta-data
             android:name="design_height"
-            android:value="1920" />
+            android:value="1920"/>
 
-        <activity android:name=".base.BaseActivity" />
-        <activity android:name=".view.Home_Fragemnt_Note"></activity>
+        <activity android:name=".base.BaseActivity"/>
+        <activity android:name=".view.Home_Fragemnt_Note"/>
+
         <meta-data
             android:name="com.explem.smalllemonade.utils.MyGlideMoudle"
-            android:value="GlideModule" />
+            android:value="GlideModule"/>
 
         <activity android:name=".DaoHangActivity">
         </activity>
-        <activity android:name=".TiaoZhuanActivity" />
+        <activity android:name=".TiaoZhuanActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".WangJiActivity" />
-        <activity android:name=".ZhuceActivity" />
-        <activity android:name=".WebViewActivity" />
+        <activity android:name=".WangJiActivity"/>
+        <activity android:name=".ZhuceActivity"/>
+        <activity android:name=".WebViewActivity"/>
         <activity android:name=".ViewDemoActivity"/>
-        <!--android:value="GlideModule" />-->
-        <activity android:name=".UapdateNameAcitvity" />
-        <activity android:name=".ModifyPwdActivity" />
-        <activity android:name=".InviteActivity"></activity>
-
-        <activity android:name=".Lenmmon_Girl_Gift" />
-        <activity android:name=".Home_Fragment_Love_oxygen_nine" />
-        <activity android:name=".Home_Fragment_Code_I_Know" />
-        <activity android:name=".community.CategoryDetailActivity" />
-        <activity android:name=".MineJumpActivity" />
-        <activity android:name=".Home_Fragment_LunBoMusic" />
-        <activity android:name=".Home_Fragment_Look_More"></activity>
-        <activity android:name=".Home_Fragment_Love_Shequ"></activity>
-        <activity android:name=".community.holder.HelloActivity"></activity>
-
-
+        <!-- android:value="GlideModule" /> -->
+        <activity android:name=".UapdateNameAcitvity"/>
+        <activity android:name=".ModifyPwdActivity"/>
+        <activity android:name=".InviteActivity"/>
+        <activity android:name=".Lenmmon_Girl_Gift"/>
+        <activity android:name=".Home_Fragment_Love_oxygen_nine"/>
+        <activity android:name=".Home_Fragment_Code_I_Know"/>
+        <activity android:name=".community.CategoryDetailActivity"/>
+        <activity android:name=".MineJumpActivity"/>
+        <activity android:name=".Home_Fragment_LunBoMusic"/>
+        <activity android:name=".Home_Fragment_Look_More"/>
+        <activity android:name=".Home_Fragment_Love_Shequ"/>
+        <activity android:name=".community.holder.HelloActivity"/>
+        <activity android:name=".community.PostActivity">
+        </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>
