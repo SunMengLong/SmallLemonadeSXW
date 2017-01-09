@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.adapter.Home_Fragment_Recycle_Adapter;
@@ -24,24 +25,28 @@ public class Home_Fragment_Reply extends Fragment implements PullBaseView.OnHead
 
     private PullRecyclerView home_fragment_recycle;
     private Home_Fragment_Recycle_Adapter home_fragment_recycle_adapter;
+    private TextView tv_hide;
+    private boolean flag=false;
+    ArrayList<String> list=new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home_reply,null);
         home_fragment_recycle = (PullRecyclerView) v.findViewById(R.id.home_fragment_recycle);
-        home_fragment_recycle.setOnHeaderRefreshListener(this);
-        initData();
-        home_fragment_recycle.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        home_fragment_recycle_adapter = new Home_Fragment_Recycle_Adapter(getActivity(), list);
-        home_fragment_recycle.setAdapter(home_fragment_recycle_adapter);
+        tv_hide = (TextView) v.findViewById(R.id.frgment555);
+        //判斷如果有數據，則設置數據適配器
+        if(flag) {
+            home_fragment_recycle.setOnHeaderRefreshListener(this);
+            home_fragment_recycle.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+            home_fragment_recycle_adapter = new Home_Fragment_Recycle_Adapter(getActivity(), list);
+            home_fragment_recycle.setAdapter(home_fragment_recycle_adapter);
+        }else{
+            home_fragment_recycle.setVisibility(View.GONE);
+            tv_hide.setVisibility(View.VISIBLE);
+        }
         return v;
     }
-    ArrayList<String> list=new ArrayList<>();
-        private void initData() {
-            list.add("没有更多啦☹");
-        }
-
     @Override
     public void onHeaderRefresh(PullBaseView view) {
         new Handler().postDelayed(new Runnable() {

@@ -10,6 +10,8 @@ import com.umeng.socialize.UMShareAPI;
 
 import org.xutils.x;
 
+import io.rong.imkit.RongIM;
+
 
 /**
  * Created by Pooh on 2016/12/27.
@@ -45,6 +47,8 @@ public class MyApplication extends Application{
         thread = Thread.currentThread();
         PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
         UMShareAPI.get(this);
+        //初始化融云
+        RongIM.init(this);
     }
     //上下文的方法
     public static Context getConText(){

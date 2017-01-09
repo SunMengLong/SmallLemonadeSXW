@@ -2,7 +2,6 @@
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
     android:background="#fff">
 
@@ -11,6 +10,7 @@
         android:layout_height="@dimen/home_fragment_period_pop_local">
 
         <TextView
+            android:textColor="#323232"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -52,8 +52,8 @@
         <Button
 
             android:id="@+id/home_fragment_pop_true"
-            android:layout_width="@dimen/home_fragment_period_pop_hight"
-            android:layout_height="@dimen/home_fragment_period"
+            android:layout_width="700px"
+            android:layout_height="100px"
             android:layout_centerHorizontal="true"
             android:background="@color/popCoffeeColor"
             android:text="@string/period_one_dog_pop_button_true"

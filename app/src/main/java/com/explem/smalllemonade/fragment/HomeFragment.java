@@ -604,9 +604,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
         home_fragment_pop_che_two = (CheckBox) vv.findViewById(R.id.home_fragment_pop_che_two);
         //单身期
         home_fragment_pop_che_one = (CheckBox) vv.findViewById(R.id.home_fragment_pop_che_one);
-        final PopupWindow pop = new PopupWindow(vv, 500, 600);
-        pop.setBackgroundDrawable(new BitmapDrawable());
+        final PopupWindow pop = new PopupWindow(vv, 900, 750);
         pop.setOutsideTouchable(true);
+        pop.setBackgroundDrawable(new BitmapDrawable());
         pop.setAnimationStyle(R.style.Popupwindow);
         int height = pop.getHeight();
         int width = pop.getWidth();
@@ -615,7 +615,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             // 关闭
             pop.dismiss();
         } else {
-            pop.showAtLocation(v, Gravity.LEFT | Gravity.TOP, v.getWidth() / 2 - width / 2, v.getHeight() / 2 - height / 2);
+            pop.showAtLocation(v, Gravity.LEFT | Gravity.TOP, v.getWidth() / 2 - width / 2, v.getHeight() / 2 - height / 2+150);
             backgroundAlpha(0.3f);
         }
         pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
