@@ -1,6 +1,7 @@
 package com.explem.smalllemonade.community.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.explem.smalllemonade.Home_Fragment_Love_Shequ;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.community.adapter.MyAdapter;
@@ -51,7 +53,7 @@ public class CategoryFragment extends BaseFragment {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            CommunityContent communityContent = (CommunityContent) msg.obj;
+            final CommunityContent communityContent = (CommunityContent) msg.obj;
             switch (msg.what) {
                 case TOP:
                     MyAdapter myAdapter = new MyAdapter(getActivity(), communityContent.getData());
@@ -60,6 +62,14 @@ public class CategoryFragment extends BaseFragment {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Toast.makeText(getActivity(),"item listview NO."+position,Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+                            intent.putExtra("id",communityContent.getData().get(position).getId());
+                            intent.putExtra("headImage",communityContent.getData().get(position).getHeadImg());
+                            intent.putExtra("userName",communityContent.getData().get(position).getUserName());
+                            intent.putExtra("createTime",communityContent.getData().get(position).getCreateTime());
+                            intent.putExtra("content",communityContent.getData().get(position).getContent());
+                            intent.putExtra("title",communityContent.getData().get(position).getTitle());
+                            startActivity(intent);
                         }
                     });
                     break;
@@ -75,6 +85,14 @@ public class CategoryFragment extends BaseFragment {
                         @Override
                         public void onItemClick(int position) {
                             Toast.makeText(getActivity(),"item recyclerview NO."+position,Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+                            intent.putExtra("id",communityContent.getData().get(position).getId());
+                            intent.putExtra("headImage",communityContent.getData().get(position).getHeadImg());
+                            intent.putExtra("userName",communityContent.getData().get(position).getUserName());
+                            intent.putExtra("createTime",communityContent.getData().get(position).getCreateTime());
+                            intent.putExtra("content",communityContent.getData().get(position).getContent());
+                            intent.putExtra("title",communityContent.getData().get(position).getTitle());
+                            startActivity(intent);
                         }
                     });
                     break;
@@ -84,6 +102,7 @@ public class CategoryFragment extends BaseFragment {
     public MyListView listview_category_fragment;
     public RecyclerView recyclerview_category_fragment;
     public String flag;
+
 
     @Override
     protected void onload() {

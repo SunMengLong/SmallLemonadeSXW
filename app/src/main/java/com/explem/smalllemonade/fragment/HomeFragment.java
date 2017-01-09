@@ -110,8 +110,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
     public static String path_air = "http://www.yulin520.com/a2a/news/dissertation";
     public static String args_air = "sign=7D4ED43C186CA4EDEB99193024F9BEF2&pageSize=1&queryData=&ts=1482905506&page=1";
     //恋爱氧气
-    public  String path_oxygen = "http://www.yulin520.com/a2a/news/sd/list";
-    public  String args_oxygen = "sign=FF249FC05B920D994BE888EBD6F68133&ts=1482905506&pageSize=6&page=1";
+    public String path_oxygen = "http://www.yulin520.com/a2a/news/sd/list";
+    public String args_oxygen = "sign=FF249FC05B920D994BE888EBD6F68133&ts=1482905506&pageSize=6&page=1";
     public static Dao dao;
     private TextView home_fragment__num;
     public static String data;
@@ -142,7 +142,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 //   if (home_fragment_giftBean.getData() != null) {
                 //     Glide.with(getActivity()).load(R.mipmap.wansheng).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_snow_people);
                 home_fragment_snow_people.setImageResource(R.mipmap.wansheng);
-             //   home_fragment_yuandan.setImageResource(R.mipmap.qixi);
+                //   home_fragment_yuandan.setImageResource(R.mipmap.qixi);
             }
             //恋乎社区
             if (msg.arg1 == tag_love) {
@@ -210,10 +210,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 home_fragment_love_oxygen = (Home_Fragment_Love_oxygen) msg.obj;
 
                 for (int i = 0; i < 3; i++) {
-                    if(home_fragment_love_oxygen.getData().size()>i){
+                    if (home_fragment_love_oxygen.getData().size() > i) {
                         oxygnlist.add(home_fragment_love_oxygen.getData().get(i));
                     }
-                    if(oxygnlist!=null&&oxygnlist.get(0).getStartTime()!=null&&oxygnlist.get(0).getStartTime().length()>11){
+                    if (oxygnlist != null && oxygnlist.get(0).getStartTime() != null && oxygnlist.get(0).getStartTime().length() > 11) {
                         substring = oxygnlist.get(0).getStartTime().substring(5, 10);
                     }
                     love_air_tv.setText(substring);
@@ -235,10 +235,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 }
                 oxygnlist2.clear();
                 for (int i = 4; i < 6; i++) {
-                    if(home_fragment_love_oxygen.getData().size()>i){
+                    if (home_fragment_love_oxygen.getData().size() > i) {
                         oxygnlist2.add(home_fragment_love_oxygen.getData().get(i));
                     }
-                    if(oxygnlist!=null&&oxygnlist.get(0).getStartTime()!=null&&oxygnlist.get(0).getStartTime().length()>11){
+                    if (oxygnlist != null && oxygnlist.get(0).getStartTime() != null && oxygnlist.get(0).getStartTime().length() > 11) {
                         substring2 = oxygnlist.get(0).getStartTime().substring(5, 10);
                     }
 //                    oxygnlist2.add(home_fragment_love_oxygen.getData().get(0));
@@ -547,13 +547,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.home_fragment_more:
                 Toast.makeText(getActivity(), "999999", Toast.LENGTH_SHORT).show();
-                Intent intent1 =new Intent(getActivity(), Home_Fragment_Look_More.class);
+                Intent intent1 = new Intent(getActivity(), Home_Fragment_Look_More.class);
                 List<Home_Fragment_Love_oxygen.DataBean> data = home_fragment_love_oxygen.getData();
-             if(data!=null&&data!=null){
-                intent1.putExtra("list", (Serializable) data);
-             }
+                if (data != null && data != null) {
+                    intent1.putExtra("list", (Serializable) data);
+                }
                 startActivity(intent1);
-            break;
+                break;
 
             default:
                 break;
@@ -763,10 +763,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
-                View lunbo_view=View.inflate(getActivity(),R.layout.lunbo_view,null);
+                View lunbo_view = View.inflate(getActivity(), R.layout.lunbo_view, null);
                 //查找控件
-                ImageView lunbo_img1= (ImageView) lunbo_view.findViewById(R.id.lunbo_img1);
-                ImageView lunbo_img2= (ImageView) lunbo_view.findViewById(R.id.lunbo_img2);
+                ImageView lunbo_img1 = (ImageView) lunbo_view.findViewById(R.id.lunbo_img1);
+                ImageView lunbo_img2 = (ImageView) lunbo_view.findViewById(R.id.lunbo_img2);
                 //ImageView img = new ImageView(getActivity());
                 Glide.with(getActivity()).load(home_fragment_lunBo_bean.getData().
                         get(position % home_fragment_lunBo_bean.getData().size()).getImg()).
@@ -779,10 +779,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     @Override
                     public void onClick(View view) {
                         Intent in = new Intent(getActivity(), Home_Fragment_LunBoMusic.class);
+                        in.putExtra("broadcastId", home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getBroadcastId() + "");
                         in.putExtra("url", home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getUrl());
                         in.putExtra("img", home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getImg());
                         in.putExtra("web", home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getDetailsUrl());
-                        in.putExtra("title",home_fragment_lunBo_bean.getData().get(position%home_fragment_lunBo_bean.getData().size()).getTitle());
+                        in.putExtra("title", home_fragment_lunBo_bean.getData().get(position % home_fragment_lunBo_bean.getData().size()).getTitle());
                         startActivity(in);
                     }
                 });
@@ -794,6 +795,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 container.removeView((View) object);
             }
         });
-        home_fragment_viewPager.setCurrentItem(home_fragment_lunBo_bean.getData().size()*100);
+        home_fragment_viewPager.setCurrentItem(home_fragment_lunBo_bean.getData().size() * 100);
     }
 }
