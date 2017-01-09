@@ -23,6 +23,15 @@ public class CommunityContent {
         private String replyTimes;
         private int id;
         private String userName;
+        private long createTime;
+
+        public long getCreateTime() {
+            return createTime;
+        }
+
+        public void setCreateTime(long createTime) {
+            this.createTime = createTime;
+        }
 
         public String getUserName() {
             return userName;
