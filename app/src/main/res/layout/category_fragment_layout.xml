@@ -6,7 +6,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:focusable="true"
+        android:focusable="false"
         android:layout_height="match_parent">
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -16,6 +16,7 @@
 
             <com.explem.smalllemonade.view.MyListView
                 android:divider="@null"
+                android:focusable="true"
                 android:id="@+id/listview_category_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -26,6 +27,7 @@
 
                 android:id="@+id/recyclerview_category_fragment"
                 android:layout_width="match_parent"
+                android:focusable="true"
                 android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
         </com.zhy.autolayout.AutoLinearLayout>

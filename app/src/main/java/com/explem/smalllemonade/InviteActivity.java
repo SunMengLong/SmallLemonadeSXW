@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -20,11 +21,13 @@ public class InviteActivity extends AppCompatActivity implements View.OnClickLis
     private LinearLayout share_wechat;
     private LinearLayout share_friend;
     private LinearLayout share_weibo;
+    private ImageView title_pwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invite);
+        title_pwd = (ImageView) findViewById(R.id.title_pwd);
         share_qqzone = (LinearLayout) findViewById(R.id.share_qqzone);
         share_qq = (LinearLayout) findViewById(R.id.share_qq);
         share_wechat = (LinearLayout) findViewById(R.id.share_wechat);
@@ -32,6 +35,7 @@ public class InviteActivity extends AppCompatActivity implements View.OnClickLis
         share_weibo = (LinearLayout) findViewById(R.id.share_weibo);
         share_qq.setOnClickListener(this);
         share_wechat.setOnClickListener(this);
+        title_pwd.setOnClickListener(this);
 
     }
 
@@ -78,6 +82,9 @@ public class InviteActivity extends AppCompatActivity implements View.OnClickLis
                         .withText("hello")
                         .setCallback(umShareListener)
                         .share();
+                break;
+            case R.id.title_pwd:
+                finish();
                 break;
         }
     }

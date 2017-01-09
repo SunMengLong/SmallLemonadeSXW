@@ -104,7 +104,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/img3"
             android:gravity="center_vertical"
-            android:textColor="@color/Gray"
+            android:textColor="@color/colorgray"
             android:textSize="@dimen/mf_tv_hei" />
 
         <TextView
@@ -144,7 +144,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/img4"
             android:gravity="center_vertical"
-            android:textColor="@color/Gray"
+            android:textColor="@color/colorgray"
             android:textSize="@dimen/mf_tv_hei" />
 
         <TextView
@@ -184,7 +184,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/img5"
             android:gravity="center_vertical"
-            android:textColor="@color/Gray"
+            android:textColor="@color/colorgray"
             android:textSize="@dimen/mf_tv_hei" />
 
         <TextView
@@ -224,7 +224,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/img6"
             android:gravity="center_vertical"
-            android:textColor="@color/Gray"
+            android:textColor="@color/colorgray"
             android:textSize="@dimen/mf_tv_hei" />
 
         <TextView

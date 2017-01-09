@@ -93,7 +93,7 @@ public class MineJumpActivity extends BaseActivity implements View.OnClickListen
         title_tvtitle = (TextView) findViewById(R.id.title_tvtitle);
         //右侧
         title_tvright = (TextView) findViewById(R.id.title_tvright);
-   //     title_imgRight = (ImageView) findViewById(R.id.title_imgRight);
+       title_imgRight = (ImageView) findViewById(R.id.title_imgRight);
 
     }
 

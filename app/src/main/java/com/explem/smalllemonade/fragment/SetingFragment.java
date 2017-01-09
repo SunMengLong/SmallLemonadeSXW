@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.explem.smalllemonade.InviteActivity;
@@ -25,6 +26,7 @@ public class SetingFragment extends Fragment implements View.OnClickListener {
     private RelativeLayout mf_invite_friend;
     private RelativeLayout mf_about_mine;
     private RelativeLayout mf_version_update;
+    private Button concle;
 
     @Nullable
     @Override
@@ -38,6 +40,8 @@ public class SetingFragment extends Fragment implements View.OnClickListener {
         mf_about_mine = (RelativeLayout) view.findViewById(R.id.mf_about_mine);
         //版本更新
         mf_version_update = (RelativeLayout) view.findViewById(R.id.mf_version_update);
+        //退出登陆
+        concle = (Button) view.findViewById(R.id.concle);
 
         mf_modify_pwd.setOnClickListener(this);
         mf_invite_friend.setOnClickListener(this);
@@ -62,6 +66,9 @@ public class SetingFragment extends Fragment implements View.OnClickListener {
                 break;
             //版本更新
             case R.id.mf_version_update:
+                break;
+            //退出登陆
+            case R.id.concle:
                 break;
         }
     }
