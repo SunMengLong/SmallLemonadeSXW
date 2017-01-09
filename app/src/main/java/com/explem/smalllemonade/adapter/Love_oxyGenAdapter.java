@@ -76,6 +76,10 @@ public class Love_oxyGenAdapter extends RecyclerView.Adapter <Love_oxyGenHolder>
 //            holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,25)+"...");
 //        }
 //         holder.home_fragment_love_oxygen_contentInter.setText(list.get(position).getContentIntr().substring(0,20)+"...");
+        if(list.size()==1){
+            list.add(list.get(0));
+            list.add(list.get(0));
+        }
        holder.home_fragment_love_oxygen_title.setText(list.get(position).getTitle());
         if(list.get(position).getContentIntr()!=null){
             if(list.get(position).getContentIntr().length()<=26){

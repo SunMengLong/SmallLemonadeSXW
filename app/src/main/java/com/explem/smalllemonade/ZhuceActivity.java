@@ -1,14 +1,13 @@
 package com.explem.smalllemonade;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,8 +20,6 @@ import com.explem.smalllemonade.tiaozhuan.TiaoZhuan;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.ShowingPage;
 import com.google.gson.Gson;
-
-import static com.explem.smalllemonade.utils.BaseDate.NOTIME;
 
 public class ZhuceActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView title_tvtitle;
@@ -67,7 +64,7 @@ public class ZhuceActivity extends AppCompatActivity implements View.OnClickList
         cd_wancheng.setOnClickListener(this);
         title_tvtitle.setText("注册");
     }
-
+//13363087933
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

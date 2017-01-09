@@ -1,9 +1,9 @@
 package com.explem.smalllemonade;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,8 +17,6 @@ import com.explem.smalllemonade.bean.LogBean;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.view.ShowingPage;
 import com.google.gson.Gson;
-
-import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageView iv_logo;
@@ -80,6 +78,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(LoginActivity.this,WangJiActivity.class));
                 break;
             case  R.id.weixin_iv:
+                //Log.i("kkkkkk", "onClick: ........weixin");
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 break;
             case  R.id.zhuce_tv:
@@ -102,7 +101,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     case "ok":
                         Toast.makeText(LoginActivity.this,"成功登陆",Toast.LENGTH_LONG).show();
                         // startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                        Log.i("kkkkkk", "setResultData: ......");
                        startActivity(new Intent(LoginActivity.this,ViewDemoActivity.class));
+                        Log.i("kkkkkk", "setResultData: ......222");
                     case "error":
                         Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_LONG).show();
                 }
