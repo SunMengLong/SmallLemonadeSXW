@@ -9,7 +9,7 @@
         android:focusable="false"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent">
@@ -24,11 +24,15 @@
             </com.explem.smalllemonade.view.MyListView>
 
             <android.support.v7.widget.RecyclerView
+
                 android:id="@+id/recyclerview_category_fragment"
                 android:layout_width="match_parent"
                 android:focusable="true"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-        </LinearLayout>
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </com.zhy.autolayout.AutoLinearLayout>
 
     </ScrollView>
 

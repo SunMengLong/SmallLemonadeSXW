@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_home__fragment__code__i__know"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,4 +8,4 @@
         android:id="@+id/home_fragment_I_konw_web"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"></WebView>
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

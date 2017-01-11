@@ -10,15 +10,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.community.bean.CommunityContent;
-import com.explem.smalllemonade.utils.CommonUtils;
 
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by Administrator on 2016/12/31 0031.
@@ -59,6 +55,8 @@ public class MyRecyclerView extends RecyclerView.Adapter<MyRecyclerView.MyHolder
         holder.tv_subcommunity_name.setText(list.get(position).getUserName());
         holder.tv_subcommunity_replyTimes.setText(list.get(position).getReplyTimes() + "");
         setAnimation(holder.view,position);
+
+        Log.i("aaaaaa", "onBindViewHolder: ....."+position);
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override

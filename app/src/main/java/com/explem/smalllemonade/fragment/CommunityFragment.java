@@ -1,28 +1,24 @@
 package com.explem.smalllemonade.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.community.fragment.SubCommunityFragment_Category;
 import com.explem.smalllemonade.community.fragment.SubCommunityFragment_Some;
 import com.explem.smalllemonade.utils.CommonUtils;
+import com.explem.smalllemonade.view.Home_Fragemnt_Note;
 import com.explem.smalllemonade.view.ShowingPage;
-import com.liaoinstan.springview.widget.SpringView;
-
-import static android.R.attr.fragment;
 
 /**
  * Created by Pooh on 2016/12/27.
@@ -34,6 +30,7 @@ public class CommunityFragment extends BaseFragment implements ViewPager.OnPageC
     public CommunityPagerAdapter communityPagerAdapter;
     public ViewPager vp_community_content;
     public View view;
+    public ImageView iv_fragment_community_note;
 
     @Override
     protected void onload() {
@@ -55,6 +52,7 @@ public class CommunityFragment extends BaseFragment implements ViewPager.OnPageC
         rg_community_header = (RadioGroup) view.findViewById(R.id.rg_community_header);
 
         vp_community_content = (ViewPager) view.findViewById(R.id.vp_community_content);
+
         vp_community_content.setOffscreenPageLimit(3);
 
         //对头部进行监听
@@ -68,6 +66,7 @@ public class CommunityFragment extends BaseFragment implements ViewPager.OnPageC
 
         vp_community_content.setAdapter(communityPagerAdapter);
 
+        view.findViewById(R.id.iv_fragment_community_note).setOnClickListener(this);
         vp_community_content.setOnPageChangeListener(this);
     }
 
@@ -98,6 +97,11 @@ public class CommunityFragment extends BaseFragment implements ViewPager.OnPageC
     @Override
     public void onClick(View v) {
         vp_community_content.setCurrentItem(v.getId());
+
+        if (v.getId() == R.id.iv_fragment_community_note){
+            Intent intent = new Intent(getActivity(), Home_Fragemnt_Note.class) ;
+            startActivity(intent);
+        }
     }
 
 

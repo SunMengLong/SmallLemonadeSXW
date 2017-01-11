@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
     android:orientation="vertical">
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_weight="1"
         android:id="@+id/home_fragment_pop_lin"
         android:layout_width="match_parent"
@@ -29,12 +29,12 @@
                 android:gravity="center"
                 android:textColor="@color/colorWhite"/>
 
-    </LinearLayout>
-    <LinearLayout
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_fragment_period_pop_localvv"
-        android:background="@color/colorWhite"></LinearLayout>
-    <LinearLayout
+        android:background="@color/colorWhite"></com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,13 +57,13 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/colorWhite"/>
-    </LinearLayout>
-    <LinearLayout
+    </com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_fragment_period_pop_localvv"
         android:background="@color/colorWhite"
-        ></LinearLayout>
-    <LinearLayout
+        ></com.zhy.autolayout.AutoLinearLayout>
+    <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/home_fragment_pop_jubao"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -86,6 +86,6 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/colorWhite"/>
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

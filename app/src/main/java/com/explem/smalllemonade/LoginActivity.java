@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String status;
     String message;
     String name;
-    String password;
+   public static String password;
     LogBean logBean;
     //http://114.112.104.151:8203/LvScore_Service/visit/user_checkVerificationCode.
   //  do?telNum=18500704987&verCode=730219

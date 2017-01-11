@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_centerInParent="true"
     android:orientation="vertical"
+        android:layout_width="wrap_content"
     android:layout_height="match_parent"
     >
     <TextView
@@ -15,16 +19,18 @@
         android:layout_height="match_parent">
 
     <TextView
+        android:text="这不是刻个吗"
         android:padding="30px"
         android:background="#fff"
         android:textColor="#323232"
         android:id="@+id/home_fragment__love_recycle_tv"
-        android:layout_width="840px"
+        android:layout_width="850px"
         android:layout_marginLeft="@dimen/home_fragment_note"
         android:layout_height="210px"
         android:textSize="15sp" />
 
     <ImageView
+        android:src="@mipmap/a1"
         android:layout_marginRight="10px"
         android:id="@+id/home_fragment__love_recycle_img"
         android:layout_width="400px"
@@ -46,4 +52,5 @@
 
 
     </com.zhy.autolayout.AutoLinearLayout>
-</com.zhy.autolayout.AutoLinearLayout>
+</android.support.v7.widget.CardView>
+    </com.zhy.autolayout.AutoRelativeLayout>

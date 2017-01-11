@@ -1,7 +1,6 @@
 package com.explem.smalllemonade.community.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -9,11 +8,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.explem.smalllemonade.MainActivity;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.utils.CommonUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -24,6 +23,7 @@ public class SubCommunityFragmentAdapter extends BaseAdapter {
 
     private Context context;
     private List<CommunityContent.Data> list;
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public SubCommunityFragmentAdapter(Context context, List<CommunityContent.Data> list) {
         this.context = context;
@@ -73,6 +73,7 @@ public class SubCommunityFragmentAdapter extends BaseAdapter {
         tv_subcommunity_content.setText(list.get(position).getContent());
         tv_subcommunity_name.setText("我的月亮你的心");
         tv_subcommunity_replyTimes.setText(list.get(position).getReplyTimes());
+//        tv_subcommunity_createTime.setText(list.get(position));
 
         return convertView;
     }

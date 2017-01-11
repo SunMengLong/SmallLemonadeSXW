@@ -1,13 +1,11 @@
 package com.explem.smalllemonade.fragment;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.icu.util.Calendar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,7 +15,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -27,7 +24,6 @@ import com.explem.smalllemonade.MineJumpActivity;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.utils.CommonUtils;
-import com.explem.smalllemonade.utils.StartUtils;
 import com.explem.smalllemonade.view.ShowingPage;
 
 import java.io.File;
@@ -38,8 +34,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static com.explem.smalllemonade.R.id.mf_reBaseInfo;
-import static com.explem.smalllemonade.R.id.tv_BaseBrDay;
-import static com.explem.smalllemonade.R.id.tv_BaseStar;
 
 /**
  * Created by Pooh on 2016/12/27.

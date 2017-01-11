@@ -25,7 +25,7 @@ public class WangJiActivity extends AppCompatActivity implements View.OnClickLis
     private  EditText   et_yanzheng;
     private CardView cd_yanzheng;
     private CardView cd_tijiao;
-    private String name;
+    public static String name;
     private String pat = "http://114.112.104.151:8203/LvScore_Service/visit/user_getverificationcode.do";
     private String args = "telNum=" + name;
     private  String path1="http://114.112.104.151:8203/LvScore_Service/visit/user_checkVerificationCode.do";
@@ -33,6 +33,7 @@ public class WangJiActivity extends AppCompatActivity implements View.OnClickLis
     //http://114.112.104.151:8203/LvScore_Service/visit/user_register.do?telNum=18500704988&name=godboy&password=123456
    // private  String pa="http://114.112.104.151:8203/LvScore_Service/visit/user_register.do";
     private  String papa="http://114.112.104.151:8203/LvScore_Service/visit/setUserLoginPassword.do";
+    public static String mima;
     //http://114.112.104.151:8203/LvScore_Service/visit/setUserLoginPassword.do?telNum=18500704988&userId=10124&password=12345678
 
     @Override
@@ -74,7 +75,7 @@ public class WangJiActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.cd_tijiao:
                 // 1. 判断密码为6位
-                String mima = et_xinmima.getText().toString().trim();
+                mima = et_xinmima.getText().toString().trim();
                 if (!(mima.length()>=6) ){
                     Toast.makeText(this, "密码是6位哦！", Toast.LENGTH_SHORT).show();
                     return;

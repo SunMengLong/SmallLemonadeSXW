@@ -1,201 +1,229 @@
 package com.explem.smalllemonade;
 
+import android.app.Service;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.explem.smalllemonade.adapter.MyFmLvAdapter;
+import com.explem.smalllemonade.base.BaseActivity;
+import com.explem.smalllemonade.bean.FmcommentBean;
+import com.explem.smalllemonade.interces.OnMediaPlayerListener;
+import com.explem.smalllemonade.services.MyService;
+import com.explem.smalllemonade.utils.BaseDate;
+import com.explem.smalllemonade.view.MyListView;
+import com.explem.smalllemonade.view.ShowingPage;
+import com.google.gson.Gson;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Home_Fragment_LunBoMusic extends AppCompatActivity implements View.OnClickListener {
+import static android.R.attr.path;
+import static android.R.attr.theme;
 
-    private ImageView home_fragment_lunbo_music_img;
-    private ImageView hom_lunbo_music_img_stop;
+public class Home_Fragment_LunBoMusic extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, OnMediaPlayerListener {
+
     private String url;
     private String img;
     private String web;
     private WebView home_fragment_lunbo_music_web;
-    private MediaPlayer mediaPlayer;
+    private String title;
+    private ImageButton imgbt_pause;
+    private ImageView img_palyAanima;
+    private SeekBar seekBar;
+    private ImageView mv_imgBac;
+    private TextView tv_curentp;
+    private TextView tv_duration;
     private AnimationDrawable animationDrawable;
-    private ImageView hom_music_img_starts;
-    private boolean flag = false;
-    private ImageView hom_lunbo_music_img_close;
-    private SeekBar music_img_seekbar;
-    private Timer timer = new Timer();
-    private int duration;
+    private ImageButton imgbt_play;
+    private ImageView img_pauseAnima;
+    private String broadcastId;
+    private MyService.MyBinder mybinder;
 
-    Handler handler = new Handler() {
+    private ServiceConnection conn = new ServiceConnection() {
         @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            seekPro = (Integer) msg.obj;
-            music_img_seekbar.setProgress(seekPro);
-            minute = (duration - seekPro) / 60000;
-            seconds = (duration - seekPro) % 60000;
-            //秒数
-            second = Math.round((float) seconds / 1000);
-            start_time.setText(minute + ":" + second + "");
-            Log.i("uuuuuuuuuuuu", seekPro + "handleMessage: .........." + duration);
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            mybinder = (MyService.MyBinder) iBinder;
+            mybinder.setOnMediaPlayerListener(Home_Fragment_LunBoMusic.this);
+            mybinder.helpStartPlay(url);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
         }
     };
-    private int seekPro;
-    private TextView start_time;
-    private long minute;
-    private long seconds;
-    private long second;
-    private LinearLayout music_lin;
-    private String title;
+    private MyListView music_myListView;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mediaPlayer = new MediaPlayer();
         setContentView(R.layout.activity_home__fragment__lun_bo_music);
+        gson = new Gson();
+        getIntentData();
+        initView();
+        getDataFromNet();
+        Glide.with(this).load(img).into(mv_imgBac);
+        Intent intent = new Intent(this, MyService.class);
+        startService(intent);
+        bindService(intent, conn, Service.BIND_AUTO_CREATE);
+        seekBar.setOnSeekBarChangeListener(this);
+
+    }
+
+    //获取数据
+    public void getIntentData() {
         Intent intent = getIntent();
+        broadcastId = intent.getStringExtra("broadcastId");
+        Log.i("TAG", "--------------------" + broadcastId);
         url = intent.getStringExtra("url");
         img = intent.getStringExtra("img");
         web = intent.getStringExtra("web");
         title = intent.getStringExtra("title");
-        initView();
     }
 
-
     private void initView() {
-        //音乐图片
-        home_fragment_lunbo_music_img = (ImageView) findViewById(R.id.home_fragment_lunbo_music_img);
-        //停止图片
-        hom_lunbo_music_img_stop = (ImageView) findViewById(R.id.hom_lunbo_music_img_stop);
-        //开始动画图片
-        hom_music_img_starts = (ImageView) findViewById(R.id.hom_music_img_starts);
-        //WebView
+        img_palyAanima = (ImageView) findViewById(R.id.img_palyAanima);
+        imgbt_pause = (ImageButton) findViewById(R.id.imgbt_pause);
+        imgbt_play = (ImageButton) findViewById(R.id.imgbt_play);
+        img_pauseAnima = (ImageView) findViewById(R.id.img_pauseAnima);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
+        mv_imgBac = (ImageView) findViewById(R.id.mv_imgBac);
+        mv_imgBac.setScaleType(ImageView.ScaleType.FIT_XY);
+        imgbt_pause.setOnClickListener(this);
+        imgbt_play.setOnClickListener(this);
+        img_pauseAnima.setOnClickListener(this);
+        img_palyAanima.setOnClickListener(this);
+        tv_curentp = (TextView) findViewById(R.id.tv_curentp);
+        tv_duration = (TextView) findViewById(R.id.tv_duration);
         home_fragment_lunbo_music_web = (WebView) findViewById(R.id.home_fragment_lunbo_music_web);
-        //关闭
-        hom_lunbo_music_img_close = (ImageView) findViewById(R.id.hom_lunbo_music_img_close);
-        music_lin = (LinearLayout) findViewById(R.id.music_lin);
-        //进度条
-        music_img_seekbar = (SeekBar) findViewById(R.id._music_img_seekbar);
-        //开始时间
-        start_time = (TextView) findViewById(R.id.start_time);
-        //图片覆盖全局
-        home_fragment_lunbo_music_img.setScaleType(ImageView.ScaleType.FIT_XY);
         //WebView赋值
         home_fragment_lunbo_music_web.loadUrl(web);
-        View vv= View.inflate(Home_Fragment_LunBoMusic.this,R.layout.music_diantai,null);
-        GridView music_gv = (GridView) vv.findViewById(R.id.music_gv);
-        ArrayList<String> lists=new ArrayList<>();
-         lists.add(img);
-        lists.add(title);
-     //   music_gv.setAdapter(new mYGriedAdapter(Home_Fragment_LunBoMusic.this,title,img));
-        music_lin.addView(vv);
-        //图片
-        Glide.with(Home_Fragment_LunBoMusic.this).load(img).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(home_fragment_lunbo_music_img);
-        music_img_seekbar.setMax(duration);
-        home_fragment_lunbo_music_img.setOnClickListener(this);
-        hom_lunbo_music_img_close.setOnClickListener(this);
-        music_img_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                mediaPlayer.seekTo(i);
-                //计算总长度为多少时间
-                //分钟
-                minute = (duration - i) / 60000;
-                seconds = (duration - i) % 60000;
-                //秒数
-                second = Math.round((float) seconds / 1000);
-                start_time.setText(minute + ":" + second + "");
-            }
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
+        music_myListView = (MyListView) findViewById(R.id.music_myListView);
+    }
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        //帧动画
-        animationDrawable = new AnimationDrawable();
-        animationDrawable.addFrame(getResources().getDrawable(R.mipmap.musicframe1), 200);
-        animationDrawable.addFrame(getResources().getDrawable(R.mipmap.musicframe2), 200);
-        animationDrawable.addFrame(getResources().getDrawable(R.mipmap.musicframe3), 200);
-        animationDrawable.addFrame(getResources().getDrawable(R.mipmap.musicframe4), 200);
-        animationDrawable.setOneShot(false);
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (conn != null) {
+            unbindService(conn);
+            conn = null;
+        }
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.home_fragment_lunbo_music_img:
-                play();
-                //停止隐藏
-                hom_lunbo_music_img_stop.setVisibility(View.INVISIBLE);
-                //开始显示
-                hom_music_img_starts.setVisibility(View.VISIBLE);
-                hom_music_img_starts.setBackground(animationDrawable);
-                hom_lunbo_music_img_close.setImageResource(R.mipmap.abc_stop);
-                animationDrawable.start();
-                break;
-            case R.id.hom_lunbo_music_img_close:
-                if (mediaPlayer.isPlaying() && mediaPlayer != null) {
-                    mediaPlayer.pause();
-                    hom_lunbo_music_img_stop.setVisibility(View.VISIBLE);
-                    hom_music_img_starts.setVisibility(View.INVISIBLE);
-                    hom_lunbo_music_img_close.setImageResource(R.mipmap.abc_ic_go_search_api_mtrl_alpha);
-                }
-                break;
+        mybinder.helpContinue();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+        if (b) {
+            mybinder.sendCurentPosition(i);
         }
     }
 
-    //播放音乐
-    private void play() {
-        mediaPlayer.reset();
-        mediaPlayer = MediaPlayer.create(Home_Fragment_LunBoMusic.this, Uri.parse(url));
-        mediaPlayer.start();
-        duration = mediaPlayer.getDuration();
-        music_img_seekbar.setMax(duration);
-        TimerTask timerTask = new TimerTask() {
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void sendDurPosition(final int position) {
+        seekBar.setMax(position);
+        final SimpleDateFormat d = new SimpleDateFormat("mm:ss");//格式化时间
+        runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mediaPlayer != null) {
-                    //获取音乐当前进度
-                    int currentPosition = mediaPlayer.getCurrentPosition();
-                    int seekBar = currentPosition;
-                    Message obtain = Message.obtain();
-                    obtain.obj = currentPosition;
-                    handler.sendMessage(obtain);
+                tv_duration.setText(d.format(position));
+            }
+        });
+    }
+
+    @Override
+    public void sendCrentPosition(final int position) {
+        seekBar.setProgress(position);
+        final SimpleDateFormat d = new SimpleDateFormat("mm:ss");//格式化时间
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                tv_curentp.setText(d.format(position));
+            }
+        });
+    }
+
+    //正在播放
+    @Override
+    public void onPlay() {
+        img_palyAanima.setVisibility(View.VISIBLE);
+        imgbt_play.setVisibility(View.VISIBLE);
+        img_pauseAnima.setVisibility(View.GONE);
+        imgbt_pause.setVisibility(View.GONE);
+        img_palyAanima.setImageResource(R.drawable.animation);
+        animationDrawable = (AnimationDrawable) img_palyAanima.getDrawable();
+        animationDrawable.start();
+    }
+
+    //暂停继续
+    @Override
+    public void onPauseing() {
+        img_palyAanima.setVisibility(View.GONE);
+        imgbt_play.setVisibility(View.GONE);
+        img_pauseAnima.setVisibility(View.VISIBLE);
+        imgbt_pause.setVisibility(View.VISIBLE);
+        animationDrawable.stop();
+    }
+
+    //从网络中获取数据
+    public void getDataFromNet() {
+        BaseDate baseDate = new BaseDate(this) {
+            @Override
+            protected void setResultError(ShowingPage.StateType stateLoadError) {
+
+            }
+
+            @Override
+            public void setResultData(String data) {
+                if (data != null) {
+                    final FmcommentBean fmcommentBean = gson.fromJson(data, FmcommentBean.class);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            List<FmcommentBean.DataBean> dataList = fmcommentBean.getData();
+                            Log.i("TAg", "-----------------" + dataList);
+                            music_myListView.setAdapter(new MyFmLvAdapter(Home_Fragment_LunBoMusic.this, dataList));
+                        }
+                    });
                 }
             }
         };
-        timer.schedule(timerTask, 0, 1000);
+        baseDate.getDate("http://www.yulin520.com/a2a/broadcast/comment?page=1&pageSize=9&ts=-2129224150&broadcastId=" + broadcastId + "&sign=13EE6E92611F9B787A257B1B27924C5F", null, 0, 0);
     }
-
-    //关闭时退出音乐
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mediaPlayer.isPlaying() && mediaPlayer != null) {
-            mediaPlayer.pause();
-            hom_lunbo_music_img_stop.setVisibility(View.VISIBLE);
-            hom_music_img_starts.setVisibility(View.INVISIBLE);
-            hom_lunbo_music_img_close.setImageResource(R.mipmap.abc_ic_go_search_api_mtrl_alpha);
-        }
-    }
-
-
 }

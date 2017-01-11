@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,8 +12,9 @@
     app:cardBackgroundColor="#fff">
 
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/ll"
+        android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/tv_subcommunity_title"
             android:layout_width="match_parent"
-            android:layout_height="70px"
+            android:layout_height="wrap_content"
             android:paddingLeft="20px"
             android:textColor="#000"/>
 
@@ -30,13 +30,13 @@
             android:textColor="#3c3c3c"
             android:id="@+id/tv_subcommunity_content"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:maxLines="2"
             android:paddingLeft="@dimen/common_padding"
             android:paddingRight="@dimen/common_padding"/>
 
-        <LinearLayout
+        <com.zhy.autolayout.AutoLinearLayout
             android:paddingLeft="20px"
             android:layout_width="match_parent"
             android:layout_height="70px"
@@ -64,7 +64,7 @@
                 android:gravity="center"
                 android:text="2"/>
 
-        </LinearLayout>
-    </LinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
 </android.support.v7.widget.CardView>

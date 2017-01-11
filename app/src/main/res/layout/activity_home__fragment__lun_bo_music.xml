@@ -1,114 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home__fragment__lun_bo_music"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_fragment_period_pop_localsss">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/home_fragment_lunbo_music_img"
+        <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/hom_lunbo_music_img_stop"
-            android:layout_width="@dimen/home_fragment_period"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/playclick3x" />
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="600px">
 
-        <ImageView
-            android:id="@+id/hom_music_img_starts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="invisible" />
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/mv_imgBac"
+                    android:layout_width="match_parent"
+                    android:layout_height="600px"
+                    android:src="@mipmap/ic_launcher" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_fragment_period_pop_local"
-        android:layout_alignBottom="@id/home_fragment_lunbo_music_img"
-        android:background="#000"
-        android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/img_palyAanima"
+                    android:layout_width="400px"
+                    android:layout_height="150px"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/animation"
+                    android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/hom_lunbo_music_img_close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:src="@mipmap/abc_ic_go_search_api_mtrl_alpha" />
+                <ImageView
+                    android:id="@+id/img_pauseAnima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/playclick3x"
+                    android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/start_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#9fa6a6a6"
+                    android:orientation="horizontal">
 
-            android:layout_gravity="center"
-            android:layout_marginRight="@dimen/home_fragment_note"
-            android:textColor="#fff" />
+                    <ImageButton
+                        android:id="@+id/imgbt_play"
+                        android:layout_width="0dp"
+                        android:layout_height="150px"
+                        android:layout_weight="1"
+                        android:src="@mipmap/button_play"
+                        android:visibility="gone" />
 
-        <SeekBar
-            android:id="@+id/_music_img_seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#dedede" />
+                    <ImageButton
+                        android:id="@+id/imgbt_pause"
+                        android:layout_width="0dp"
+                        android:layout_height="150px"
+                        android:layout_weight="1"
 
-    </LinearLayout>
+                        android:src="@mipmap/button_pause"
+                        android:visibility="gone" />
 
-    <WebView
-        android:id="@+id/home_fragment_lunbo_music_web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></WebView>
+                    <TextView
+                        android:id="@+id/tv_curentp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="15px"
+                        android:textColor="#fff" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/home_fragment_period"
-        android:orientation="horizontal">
+                    <SeekBar
+                        android:id="@+id/seekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="4" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/common_padding"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorGry"
-            android:gravity="center" />
+                    <TextView
+                        android:id="@+id/tv_duration"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="15px"
+                        android:textColor="#fff" />
+                </com.zhy.autolayout.AutoLinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="收听其他电台"
-            android:gravity="center" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/common_padding"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorGry"
-            android:gravity="center" />
-    </LinearLayout>
+            </com.zhy.autolayout.AutoRelativeLayout>
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/music_lin">
+            <WebView
+                android:id="@+id/home_fragment_lunbo_music_web"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></WebView>
 
-    </LinearLayout>
-    </HorizontalScrollView>
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_fragment_period"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/common_padding"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorGry"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="评论" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/common_padding"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/colorGry"
+                    android:gravity="center" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.explem.smalllemonade.view.MyListView
+                android:id="@+id/music_myListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"></com.explem.smalllemonade.view.MyListView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/mf_panding"
+                android:text="没有更多了"
+                android:textColor="@color/colorYellow"
+                android:textSize="40px" />
+
+        </com.zhy.autolayout.AutoLinearLayout>
 
 
+    </ScrollView>
 
-</LinearLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

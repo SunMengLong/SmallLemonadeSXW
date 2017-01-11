@@ -23,6 +23,24 @@ public class CommunityContent {
         private String replyTimes;
         private int id;
         private String userName;
+        private long createTime;
+        private String headImg;
+
+        public String getHeadImg() {
+            return headImg;
+        }
+
+        public void setHeadImg(String headImg) {
+            this.headImg = headImg;
+        }
+
+        public long getCreateTime() {
+            return createTime;
+        }
+
+        public void setCreateTime(long createTime) {
+            this.createTime = createTime;
+        }
 
         public String getUserName() {
             return userName;

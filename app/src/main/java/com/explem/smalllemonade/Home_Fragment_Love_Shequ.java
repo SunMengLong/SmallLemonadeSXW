@@ -17,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.explem.smalllemonade.adapter.MyListViewAdapter;
 import com.explem.smalllemonade.bean.Love_shequ;
 import com.explem.smalllemonade.utils.BaseDate;
+import com.explem.smalllemonade.view.MyListView;
 import com.explem.smalllemonade.view.ShowingPage;
 import com.google.gson.Gson;
 
@@ -45,7 +45,7 @@ public class Home_Fragment_Love_Shequ extends AppCompatActivity implements View.
     private TextView home_fragment_love_shequ_dianzan;
     private int a = 10;
 
-    private ListView home_fragment_love_shequ_lv;
+    private MyListView home_fragment_love_shequ_lv;
     private ArrayList<Integer> Imagelist;
     private ImageView home_fragment_love_shequ_heart, home_fragment_love_shequ_heart2,home_fragment_love_shequ_heart3;
     public  static String path_love="http://www.yulin520.com/a2a/forumReply/detailedShow";
@@ -101,7 +101,7 @@ public class Home_Fragment_Love_Shequ extends AppCompatActivity implements View.
         home_fragment_love_shequ_heart2 = (ImageView) findViewById(R.id.home_fragment_love_shequ_heart2);
         home_fragment_love_shequ_heart3 = (ImageView) findViewById(R.id.home_fragment_love_shequ_heart3);
         //ListView  帖子
-        home_fragment_love_shequ_lv = (ListView) findViewById(R.id.home_fragment_love_shequ_lv);
+        home_fragment_love_shequ_lv = (MyListView) findViewById(R.id.home_fragment_love_shequ_lv);
         home_fragment_love_shequ_dianzan.setText(a + "");
         home_fragment_love_shequ_name.setText(userName);
         home_fragment_love_shequ_title.setText(title);

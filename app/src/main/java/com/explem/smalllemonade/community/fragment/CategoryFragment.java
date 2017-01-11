@@ -1,26 +1,23 @@
 package com.explem.smalllemonade.community.fragment;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.explem.smalllemonade.Home_Fragment_Love_Shequ;
 import com.explem.smalllemonade.R;
 import com.explem.smalllemonade.base.BaseFragment;
 import com.explem.smalllemonade.community.adapter.MyAdapter;
 import com.explem.smalllemonade.community.adapter.MyRecyclerView;
 import com.explem.smalllemonade.community.bean.CommunityContent;
 import com.explem.smalllemonade.community.decoration.SpacesItemDecoration;
-import com.explem.smalllemonade.fragment.HomeFragment;
 import com.explem.smalllemonade.utils.BaseDate;
 import com.explem.smalllemonade.utils.CommonUtils;
 import com.explem.smalllemonade.utils.Pathes;
@@ -30,10 +27,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.id.content;
-import static android.R.id.message;
-import static com.explem.smalllemonade.R.id.tv_community_ditail_title;
 
 /**
  * Created by Administrator on 2016/12/30 0030.
@@ -51,7 +44,7 @@ public class CategoryFragment extends BaseFragment {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            CommunityContent communityContent = (CommunityContent) msg.obj;
+            final CommunityContent communityContent = (CommunityContent) msg.obj;
             switch (msg.what) {
                 case TOP:
                     MyAdapter myAdapter = new MyAdapter(getActivity(), communityContent.getData());
@@ -60,6 +53,14 @@ public class CategoryFragment extends BaseFragment {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Toast.makeText(getActivity(),"item listview NO."+position,Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+                            intent.putExtra("id",communityContent.getData().get(position).getId());
+                            intent.putExtra("headImage",communityContent.getData().get(position).getHeadImg());
+                            intent.putExtra("userName",communityContent.getData().get(position).getUserName());
+                            intent.putExtra("createTime",communityContent.getData().get(position).getCreateTime());
+                            intent.putExtra("content",communityContent.getData().get(position).getContent());
+                            intent.putExtra("title",communityContent.getData().get(position).getTitle());
+                            startActivity(intent);
                         }
                     });
                     break;
@@ -67,6 +68,7 @@ public class CategoryFragment extends BaseFragment {
                 case CONTENT:
                     recyclerview_category_fragment.setLayoutManager(new LinearLayoutManager(getActivity()));
                     MyRecyclerView recyclerViewAdapter = new MyRecyclerView(getActivity(), communityContent.getData());
+                    Log.i("aaaaaaa", "handleMessage: ..条目的数据总个数...."+communityContent.getData().size());
                     //设置recyclerview的间距
                     recyclerview_category_fragment.addItemDecoration(new SpacesItemDecoration(10));
                     recyclerview_category_fragment.setAdapter(recyclerViewAdapter);
@@ -75,6 +77,14 @@ public class CategoryFragment extends BaseFragment {
                         @Override
                         public void onItemClick(int position) {
                             Toast.makeText(getActivity(),"item recyclerview NO."+position,Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), Home_Fragment_Love_Shequ.class);
+                            intent.putExtra("id",communityContent.getData().get(position).getId());
+                            intent.putExtra("headImage",communityContent.getData().get(position).getHeadImg());
+                            intent.putExtra("userName",communityContent.getData().get(position).getUserName());
+                            intent.putExtra("createTime",communityContent.getData().get(position).getCreateTime());
+                            intent.putExtra("content",communityContent.getData().get(position).getContent());
+                            intent.putExtra("title",communityContent.getData().get(position).getTitle());
+                            startActivity(intent);
                         }
                     });
                     break;
@@ -84,6 +94,7 @@ public class CategoryFragment extends BaseFragment {
     public MyListView listview_category_fragment;
     public RecyclerView recyclerview_category_fragment;
     public String flag;
+
 
     @Override
     protected void onload() {
